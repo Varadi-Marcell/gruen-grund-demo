@@ -1,0 +1,1468 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Garten- &amp; Grundstückspflege im Raum Ulm – kurzfristige Termine</title>
+<meta name="description" content="Photovoltaik-Reinigung, Heckenschnitt, Gartenpflege, Baumpflege und Dachrinnenreinigung in Öpfingen, Ehingen, Dornstadt, Ulm, Neu-Ulm und Altenstadt. Kurzfristige Termine, kostenlose Besichtigung.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<!-- MOCKUP-VORSCHAU: Google Fonts nur zum Ansehen der Schriften.
+     VOR VERÖFFENTLICHUNG zwingend durch selbst gehostete woff2-Dateien
+     ersetzen (DSGVO-Risiko bei Google-CDN in Deutschland)! -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Bodoni+Moda:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap">
+<style>
+/* ============================================================
+   MOCKUP – wird später in Angular neu aufgebaut.
+   Alle Bilder sind Platzhalter (keine Fotos vorhanden).
+   Deutscher Text: vor Veröffentlichung von Muttersprachler prüfen!
+   Sprache: Deutsch (Standard) + dezenter EN-Umschalter im Header.
+   ============================================================ */
+
+/* --- Schriften (Stil von premiumfahaz.hu übernommen) ---
+   Überschriften: "Bodoni Moda" (elegante Serifenschrift)
+   Fließtext:     "Quicksand"   (weiche, geometrische Sans)
+   Buttons/Label: "Anton"       (kondensierte Versalien)
+   In Produktion: als selbst gehostete woff2 per @font-face einbinden,
+   Beispiel:
+   @font-face{font-family:"Quicksand";src:url("/fonts/quicksand-v400.woff2") format("woff2");font-weight:400;font-display:swap;} */
+:root{
+  --font-body:"Quicksand","Segoe UI",Roboto,Arial,sans-serif;
+  --font-head:"Bodoni Moda",Georgia,"Times New Roman",serif;
+  --font-label:"Anton","Arial Narrow",Arial,sans-serif;
+}
+
+:root{
+  /* Farbschema „Forest" (Standard): Grün, Braun, Weiß, Schwarz, Gelb */
+  --green-900:#1d3524;
+  --green-700:#2c4f34;
+  --green-600:#3a6544;
+  --green-100:#e6ede4;
+  --brown-700:#5c4632;
+  --brown-500:#7a6047;
+  --brown-100:#efe9e1;
+  --paper:#faf9f6;
+  --white:#ffffff;
+  --ink:#161613;
+  --ink-soft:#4c4c45;
+  --yellow:#e9b40b;
+  --yellow-deep:#c79608;
+  --line:#dcd9d0;
+  --hero-sub:#d8ddd4;
+  --b2b-text:#b9beb2;
+  --footer-text:#c9d2c6;
+  --footer-dim:#9dab99;
+  --radius:6px;
+  --maxw:1160px;
+  --shadow:0 2px 14px rgba(22,22,19,.07);
+}
+/* Farbschema „Premium" (inspiriert von premiumfahaz.hu):
+   Weiß, Schwarz/Anthrazit, Bronze-Gold – umschaltbar per Button im Header */
+[data-theme="premium"]{
+  --green-900:#1e1e1e;
+  --green-700:#2d2d2b;
+  --green-600:#3c3c3a;
+  --green-100:#f1ede6;
+  --brown-700:#7c5f3b;
+  --brown-500:#aa8453;
+  --brown-100:#f6f2eb;
+  --paper:#fcfcfc;
+  --ink:#1c1c1c;
+  --ink-soft:#56534d;
+  --yellow:#c6974c;
+  --yellow-deep:#aa8453;
+  --line:#e4dfd5;
+  --hero-sub:#cdcdca;
+  --b2b-text:#bdbcb8;
+  --footer-text:#c4c2bd;
+  --footer-dim:#8f8d88;
+  --shadow:0 2px 14px rgba(0,0,0,.08);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px} /* Anker enden nicht unter dem Sticky-Header */
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+}
+body{
+  font-family:var(--font-body);
+  font-weight:400;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+  overflow-x:clip; /* verhindert versehentliches Seitwärtsscrollen auf Mobilgeräten */
+}
+img{max-width:100%;display:block}
+a{color:var(--green-700)}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+h1,h2,h3{font-family:var(--font-head);line-height:1.18;letter-spacing:0}
+h1{font-size:clamp(2rem,4.8vw,3.3rem);font-weight:600}
+h2{font-size:clamp(1.55rem,3.2vw,2.3rem);font-weight:600}
+h3{font-size:1.2rem;font-weight:600}
+.kicker{
+  display:inline-block;
+  font-family:var(--font-label);font-weight:400;
+  font-size:.8rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--brown-500);margin-bottom:.8rem;
+}
+section{padding:clamp(3.5rem,8vw,6.5rem) 0}
+.section-head{max-width:640px;margin-bottom:2.5rem}
+.section-head p{color:var(--ink-soft);margin-top:.8rem}
+
+/* --- Fokus sichtbar (Tastatur) --- */
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{
+  outline:3px solid var(--yellow);outline-offset:2px;border-radius:3px;
+}
+
+/* --- Buttons --- */
+.btn{
+  display:inline-block;
+  padding:.9rem 1.7rem;
+  border:0;border-radius:var(--radius);
+  font-family:var(--font-label);font-weight:400;font-size:.95rem;
+  text-transform:uppercase;letter-spacing:.06em;word-spacing:2px;
+  cursor:pointer;text-decoration:none;text-align:center;
+}
+.btn-primary{background:var(--yellow);color:var(--ink)}
+.btn-primary:hover{background:var(--yellow-deep)}
+.btn-ghost{background:transparent;color:var(--white);border:2px solid rgba(255,255,255,.55)}
+.btn-ghost:hover{border-color:var(--white)}
+.btn-dark{background:var(--green-700);color:var(--white)}
+.btn-dark:hover{background:var(--green-900)}
+
+/* ================= NAVBAR ================= */
+.site-header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(250,249,246,.94);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav-inner{
+  max-width:1280px;margin:0 auto;padding:.7rem 20px; /* breiter als --maxw, damit die Zeile nie umbricht */
+  display:flex;align-items:center;gap:1.2rem;
+}
+.wordmark{
+  font-family:var(--font-head);
+  font-weight:700;font-size:1.1rem;letter-spacing:.01em;
+  color:var(--ink);text-decoration:none;line-height:1.2;
+  display:flex;align-items:center;gap:.65rem;
+}
+.wordmark img{width:42px;height:42px;flex-shrink:0}
+.wordmark-text{color:var(--ink)}
+.wordmark-text > span{color:var(--green-700)}
+.wordmark small{display:block;font-family:var(--font-body);font-size:.68rem;font-weight:500;color:var(--ink-soft);letter-spacing:.05em}
+.main-nav{margin-left:auto}
+.main-nav ul{list-style:none;display:flex;gap:1.4rem}
+.main-nav a{
+  text-decoration:none;color:var(--ink);font-size:.95rem;font-weight:600;
+  padding:.3rem 0;border-bottom:2px solid transparent;
+  white-space:nowrap; /* „Cutting seasons" &amp; Co. dürfen nie intern umbrechen */
+}
+.main-nav a:hover{border-bottom-color:var(--yellow)}
+.nav-phone{
+  text-decoration:none;color:var(--green-700);font-weight:600;font-size:.95rem;white-space:nowrap;
+}
+.nav-cta{padding:.6rem 1.1rem;font-size:.92rem}
+
+/* --- Dezente Umschalter: Sprache + Farbschema --- */
+.lang-switch,.color-switch{
+  background:none;
+  border:1px solid var(--line);
+  border-radius:3px;
+  padding:.28rem .55rem;
+  font:600 .74rem var(--font-body);
+  letter-spacing:.08em;
+  color:var(--ink-soft);
+  cursor:pointer;
+  white-space:nowrap;
+}
+.lang-switch:hover,.color-switch:hover{color:var(--ink);border-color:var(--ink-soft)}
+.color-switch{display:flex;align-items:center;padding:.34rem .5rem}
+.color-switch .dot{
+  width:.85rem;height:.85rem;border-radius:50%;
+  background:linear-gradient(135deg,var(--green-700) 50%,var(--yellow) 50%);
+  border:1px solid var(--line);
+}
+
+.nav-toggle{
+  display:none;margin-left:auto;
+  background:none;border:1px solid var(--line);border-radius:var(--radius);
+  padding:.5rem .7rem;font-size:1.2rem;line-height:1;cursor:pointer;color:var(--ink);
+}
+.nav-cta-mobile{display:none}
+/* Untertitel der Wortmarke nur auf sehr breiten Screens – sonst bricht die Zeile */
+@media (max-width:1280px){
+  .wordmark small{display:none}
+}
+/* Burger-Menü schon ab 1150px: darunter passt die volle Desktop-Zeile
+   (5 Menüpunkte + Schalter + Telefon + CTA) schlicht nicht hinein */
+@media (max-width:1150px){
+  .nav-toggle{display:block;min-width:44px;min-height:44px}
+  .main-nav{
+    display:none;position:absolute;top:100%;left:0;right:0;
+    background:var(--paper);border-bottom:1px solid var(--line);
+    padding:.6rem 20px 1.2rem;margin-left:0;
+    max-height:calc(100vh - 64px);overflow-y:auto;
+    box-shadow:0 12px 24px rgba(22,22,19,.12);
+  }
+  .main-nav.open{display:block}
+  .main-nav ul{flex-direction:column;gap:.1rem}
+  .main-nav a{display:block;padding:.7rem 0;font-size:1.05rem;border-bottom:1px solid var(--line)}
+  .main-nav a:hover{border-bottom-color:var(--yellow)}
+  .nav-cta{display:none}
+  .nav-cta-mobile{display:block;margin-top:1rem}
+  .nav-cta-mobile .btn{display:block;width:100%;border-bottom:0}
+}
+@media (max-width:560px){
+  .nav-inner{gap:.55rem;padding:.55rem 14px}
+  .wordmark{font-size:1rem;gap:.5rem}
+  .wordmark img{width:34px;height:34px}
+  .wordmark small{display:none} /* Untertitel weglassen – Platz für die Bedienelemente */
+  .nav-phone strong{display:none} /* nur ☎ bleibt, als runde Taste */
+  .nav-phone{
+    display:flex;align-items:center;justify-content:center;
+    width:42px;height:42px;border:1px solid var(--line);border-radius:50%;
+  }
+}
+
+/* ================= HERO / KARUSSELL ================= */
+.hero{background:var(--green-900);color:var(--white);padding:0 0 3rem}
+.carousel{position:relative}
+.carousel-track{
+  display:flex;overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  -webkit-overflow-scrolling:touch;
+  scrollbar-width:none;
+}
+.carousel-track::-webkit-scrollbar{display:none}
+.carousel-slide{
+  flex:0 0 100%;scroll-snap-align:start;
+}
+.ph{
+  background:#8a8a86;
+  border:1px solid #6f6f6b;
+  display:flex;align-items:center;justify-content:center;
+  text-align:center;color:#f2f2ef;font-size:.9rem;padding:1rem;
+}
+/* Mock-Fotos: gleiche Container-Regeln wie die Platzhalter,
+   Bild füllt das feste Seitenverhältnis per object-fit */
+img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
+.carousel-slide .ph{aspect-ratio:16/9;width:100%;border-left:0;border-right:0}
+.carousel-btn{
+  position:absolute;top:50%;transform:translateY(-50%);
+  background:rgba(22,22,19,.55);color:var(--white);
+  border:0;border-radius:50%;width:46px;height:46px;
+  font-size:1.3rem;cursor:pointer;z-index:2;
+}
+.carousel-btn:hover{background:rgba(22,22,19,.8)}
+.carousel-btn.prev{left:14px}
+.carousel-btn.next{right:14px}
+.carousel-dots{
+  position:absolute;bottom:14px;left:0;right:0;
+  display:flex;gap:.5rem;justify-content:center;
+}
+.carousel-dots button{
+  width:12px;height:12px;border-radius:50%;border:0;cursor:pointer;
+  background:rgba(255,255,255,.45);padding:0;
+  box-sizing:content-box;border:6px solid transparent;background-clip:padding-box; /* größere Tippfläche */
+}
+.carousel-dots button[aria-current="true"]{background-color:var(--yellow)}
+@media (max-width:640px){
+  .carousel-btn{display:none} /* Mobil: Wischen */
+  .carousel-slide .ph{aspect-ratio:4/3} /* höherer Bildausschnitt auf schmalen Screens */
+}
+
+.hero-copy{padding:2.6rem 0 0}
+.hero-copy h1{max-width:760px}
+.hero-copy h1 em{font-style:normal;color:var(--yellow)}
+.hero-copy p{
+  max-width:620px;margin-top:1rem;color:var(--hero-sub);font-size:1.08rem;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1.8rem}
+@media (max-width:560px){
+  .hero-copy{padding-top:2rem}
+  .hero-actions .btn{flex:1 1 100%} /* volle Breite = sichere Tippfläche */
+}
+
+/* --- Vertrauensleiste --- */
+.trust{
+  background:var(--green-700);color:var(--white);
+  padding:.9rem 0;font-size:.92rem;
+}
+.trust ul{
+  list-style:none;display:flex;flex-wrap:wrap;gap:.4rem 2.2rem;
+  max-width:var(--maxw);margin:0 auto;padding:0 20px;
+}
+.trust li::before{content:"— ";color:var(--yellow)}
+
+/* ================= LEISTUNGEN ================= */
+.services-grid{
+  display:grid;gap:1.4rem;
+  grid-template-columns:repeat(12,1fr);
+}
+.service-card{
+  background:var(--white);
+  border:1px solid var(--line);border-radius:var(--radius);
+  overflow:hidden;box-shadow:var(--shadow);
+  display:flex;flex-direction:column;
+  grid-column:span 4;
+}
+.service-card .ph{aspect-ratio:4/3}
+.service-card .card-body{padding:1.2rem 1.3rem 1.5rem;display:flex;flex-direction:column;flex:1}
+.service-card h3{margin-bottom:.5rem}
+.service-card p{color:var(--ink-soft);font-size:.95rem;flex:1}
+.service-card a{
+  margin-top:1rem;font-weight:600;text-decoration:none;font-size:.95rem;
+}
+.service-card a::after{content:" →"}
+.service-card a:hover{text-decoration:underline}
+.service-card.featured{
+  grid-column:span 8;grid-row:span 1;
+  border-top:4px solid var(--yellow);
+}
+.badge{
+  display:inline-block;background:var(--yellow);color:var(--ink);
+  font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+  padding:.2rem .6rem;border-radius:3px;margin-bottom:.7rem;align-self:flex-start;
+}
+.winter-note{
+  margin-top:2rem;padding:1rem 1.3rem;
+  background:var(--brown-100);border-left:4px solid var(--brown-500);
+  border-radius:0 var(--radius) var(--radius) 0;
+  color:var(--brown-700);font-size:.95rem;
+}
+@media (max-width:920px){
+  .service-card,.service-card.featured{grid-column:span 6}
+}
+@media (max-width:620px){
+  .service-card,.service-card.featured{grid-column:span 12}
+}
+
+/* ================= ABLAUF ================= */
+.process{background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.steps{
+  list-style:none;counter-reset:step;
+  display:grid;gap:1.6rem;grid-template-columns:repeat(4,1fr);
+}
+.steps li{counter-increment:step;position:relative;padding-top:3.4rem}
+.steps li::before{
+  content:counter(step);
+  position:absolute;top:0;left:0;
+  width:2.6rem;height:2.6rem;border-radius:50%;
+  background:var(--green-700);color:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--font-head);font-weight:700;font-size:1.1rem;
+}
+.steps h3{margin-bottom:.35rem}
+.steps p{color:var(--ink-soft);font-size:.95rem}
+@media (max-width:860px){.steps{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.steps{grid-template-columns:1fr}}
+
+/* ================= SCHNITTZEITEN ================= */
+.season{background:var(--green-100)}
+.season-table{
+  width:100%;min-width:560px; /* auf Mobil horizontal scrollbar statt zerquetscht */
+  border-collapse:collapse;background:var(--white);
+  border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);font-size:.95rem;
+}
+.season-table th,.season-table td{
+  padding:.85rem 1rem;text-align:left;border-bottom:1px solid var(--line);
+  vertical-align:top;
+}
+.season-table th{background:var(--green-700);color:var(--white);font-weight:600}
+.season-table tr:last-child td{border-bottom:0}
+.tag{
+  display:inline-block;font-size:.75rem;font-weight:600;
+  padding:.15rem .55rem;border-radius:3px;white-space:nowrap;
+}
+.tag-ok{background:var(--green-100);color:var(--green-700)}
+.tag-no{background:#f4e3e0;color:#8c3b2e}
+.tag-part{background:#f7edd2;color:#7a5c08}
+.season-note{
+  margin-top:1.2rem;font-size:.88rem;color:var(--ink-soft);max-width:720px;
+}
+.table-scroll{overflow-x:auto}
+.season .btn{margin-top:1.8rem}
+
+/* ================= GEWERBE ================= */
+.b2b{background:var(--ink);color:#e8e7e2}
+.b2b .kicker{color:var(--yellow)}
+.b2b-grid{display:grid;gap:3rem;grid-template-columns:1.1fr .9fr;align-items:start}
+.b2b h2{color:var(--white)}
+.b2b-intro{margin-top:1rem;color:var(--b2b-text)}
+.b2b ul{list-style:none;margin-top:1.4rem}
+.b2b li{
+  padding:.85rem 0 .85rem 1.6rem;position:relative;
+  border-bottom:1px solid rgba(255,255,255,.12);
+}
+.b2b li::before{content:"✓";position:absolute;left:0;color:var(--yellow);font-weight:700}
+.b2b .ph{aspect-ratio:4/3;background:#3a3a36;border-color:#55554f}
+.b2b .btn{margin-top:1.8rem}
+@media (max-width:860px){.b2b-grid{grid-template-columns:1fr}}
+
+/* ================= REFERENZEN ================= */
+.gallery-track{
+  display:flex;gap:1.2rem;overflow-x:auto;
+  scroll-snap-type:x mandatory;padding-bottom:.8rem;
+  -webkit-overflow-scrolling:touch;
+}
+.gallery-item{
+  flex:0 0 min(420px,85%);scroll-snap-align:start;
+}
+.gallery-item .ph{aspect-ratio:3/2;border-radius:var(--radius)}
+.gallery-item figcaption{
+  margin-top:.55rem;font-size:.88rem;color:var(--ink-soft);
+}
+
+/* ================= EINSATZGEBIET ================= */
+.area{background:var(--white);border-top:1px solid var(--line)}
+.area-grid{display:grid;gap:3rem;grid-template-columns:1fr 1fr;align-items:start}
+.town-list{list-style:none;display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.2rem}
+.town-list li{
+  background:var(--green-100);color:var(--green-900);
+  padding:.45rem 1rem;border-radius:999px;font-weight:600;font-size:.95rem;
+}
+.town-list li.bavaria{background:var(--brown-100);color:var(--brown-700)}
+.area-note{margin-top:1.2rem;color:var(--ink-soft);font-size:.95rem;max-width:520px}
+.area .ph{aspect-ratio:4/3;border-radius:var(--radius)}
+/* Google-Maps-Einbindung mit Zwei-Klick-Lösung (DSGVO):
+   Google wird erst nach aktiver Zustimmung des Besuchers kontaktiert. */
+.map-embed{
+  position:relative;aspect-ratio:4/3;overflow:hidden;
+  background:var(--green-100);border:1px solid var(--line);border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.map-embed iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.map-consent{
+  position:absolute;inset:0;z-index:1;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:1.2rem;text-align:center;padding:2rem;
+}
+.map-consent p{max-width:360px;font-size:.92rem;color:var(--ink-soft)}
+.map-embed.loaded .map-consent{display:none}
+@media (max-width:860px){.area-grid{grid-template-columns:1fr}}
+
+/* ================= KONTAKT ================= */
+.contact{background:var(--brown-100)}
+.contact-grid{display:grid;gap:3rem;grid-template-columns:1.2fr .8fr;align-items:start}
+.contact-form{
+  background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+  padding:1.8rem;box-shadow:var(--shadow);
+}
+.field{margin-bottom:1.1rem}
+.field label{display:block;font-weight:600;font-size:.92rem;margin-bottom:.3rem}
+.field input,.field select,.field textarea{
+  width:100%;padding:.7rem .8rem;
+  border:1px solid var(--line);border-radius:var(--radius);
+  font:400 1rem var(--font-body);background:var(--paper);color:var(--ink);
+}
+.field textarea{min-height:110px;resize:vertical}
+.field .hint{font-size:.82rem;color:var(--ink-soft);margin-top:.3rem}
+.field-row{display:grid;gap:1rem;grid-template-columns:1fr 1fr}
+@media (max-width:560px){.field-row{grid-template-columns:1fr}}
+@media (max-width:560px){
+  .contact-form{padding:1.3rem}
+  .contact-form button[type="submit"]{display:block;width:100%}
+}
+.contact-aside h3{margin-bottom:.6rem}
+.contact-aside p{color:var(--ink-soft);margin-bottom:1.2rem}
+.contact-aside a{font-weight:600}
+.response-box{
+  background:var(--white);border-left:4px solid var(--yellow);
+  padding:1rem 1.2rem;border-radius:0 var(--radius) var(--radius) 0;
+  font-size:.95rem;margin-top:1.4rem;
+}
+@media (max-width:860px){.contact-grid{grid-template-columns:1fr}}
+
+/* ================= FOOTER ================= */
+.site-footer{background:var(--green-900);color:var(--footer-text);font-size:.92rem}
+.footer-grid{
+  display:grid;gap:2.5rem;grid-template-columns:repeat(4,1fr);
+  padding:3.5rem 0 2.5rem;
+}
+.site-footer h3{color:var(--white);font-size:1rem;margin-bottom:.9rem}
+.site-footer ul{list-style:none}
+.site-footer li{margin-bottom:.45rem}
+.site-footer a{color:var(--footer-text);text-decoration:none}
+.site-footer a:hover{color:var(--yellow)}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,.15);
+  padding:1.2rem 0;display:flex;flex-wrap:wrap;gap:.6rem 2rem;
+  justify-content:space-between;font-size:.85rem;color:var(--footer-dim);
+}
+@media (max-width:860px){.footer-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:520px){.footer-grid{grid-template-columns:1fr}}
+
+/* ================= KONTAKT-SCHNELLWAHL (Floating Speed-Dial) =================
+   Dezenter runder Button unten rechts; öffnet bei Hover/Fokus/Tipp
+   die drei Kontaktwege WhatsApp, Telefon, E-Mail. */
+.contact-fab{
+  position:fixed;right:20px;z-index:60;
+  bottom:calc(20px + env(safe-area-inset-bottom,0px)); /* iPhone-Gestenleiste */
+  display:flex;flex-direction:column;align-items:center;gap:.55rem;
+}
+@media (max-width:560px){
+  .contact-fab{right:14px;bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+}
+.contact-fab .fab-item{
+  width:44px;height:44px;border-radius:50%;
+  background:var(--white);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--green-700);text-decoration:none;
+  box-shadow:var(--shadow);
+  opacity:0;transform:translateY(10px) scale(.9);pointer-events:none;
+}
+.contact-fab .fab-item:hover{background:var(--green-100);border-color:var(--green-700)}
+.contact-fab .fab-item svg{width:20px;height:20px;fill:currentColor}
+.contact-fab .fab-toggle{
+  width:52px;height:52px;border-radius:50%;border:0;cursor:pointer;
+  background:var(--green-700);color:var(--white);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 16px rgba(22,22,19,.25);
+}
+.contact-fab .fab-toggle svg{width:24px;height:24px;fill:currentColor}
+.contact-fab .fab-toggle:hover{background:var(--green-900)}
+.contact-fab:hover .fab-item,
+.contact-fab:focus-within .fab-item,
+.contact-fab.open .fab-item{
+  opacity:1;transform:none;pointer-events:auto;
+}
+@media (prefers-reduced-motion: no-preference){
+  .contact-fab .fab-item{transition:opacity .25s ease,transform .25s ease}
+  .contact-fab .fab-item:nth-child(1){transition-delay:.08s}
+  .contact-fab .fab-item:nth-child(2){transition-delay:.04s}
+  .contact-fab .fab-item:nth-child(3){transition-delay:0s}
+}
+
+/* ================= MOBILE-FEINSCHLIFF ================= */
+@media (max-width:560px){
+  .wrap{padding:0 16px}
+  .trust ul{padding:0 16px;gap:.35rem 1.4rem}
+  section{padding:3rem 0}
+  .section-head{margin-bottom:1.8rem}
+  .gallery-track{scroll-padding-left:16px}
+  .gallery-item{flex-basis:88%}
+  .steps{gap:1.9rem}
+  .b2b-grid,.area-grid,.contact-grid{gap:2rem}
+  .footer-grid{gap:1.8rem;padding:2.5rem 0 1.8rem}
+}
+
+/* ================= SCROLL-REVEAL (dezent, Apple-artig) =================
+   Nur Transform + Opacity, kurz und einmalig.
+   Vollständig deaktiviert bei prefers-reduced-motion. */
+.reveal{opacity:1;transform:none}
+@media (prefers-reduced-motion: no-preference){
+  .js .reveal{
+    opacity:0;transform:translateY(14px);
+    transition:opacity .4s ease-out,transform .4s ease-out;
+  }
+  .js .reveal.is-visible{opacity:1;transform:none}
+  .js .reveal[data-delay="1"]{transition-delay:.06s}
+  .js .reveal[data-delay="2"]{transition-delay:.12s}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<header class="site-header">
+  <div class="nav-inner">
+    <a class="wordmark" href="#top">
+      <img src="logo.svg" alt="" width="42" height="42">
+      <span class="wordmark-text">
+        Grün&nbsp;&amp;&nbsp;<span>Grund</span>
+        <small data-i18n="wm.tag">Garten- &amp; Grundstückspflege · Raum Ulm</small>
+      </span>
+      <!-- Platzhalter-Wortmarke: Firmenname/Logo noch offen -->
+    </a>
+
+    <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav" aria-label="Menü öffnen">☰</button>
+
+    <nav class="main-nav" id="main-nav" aria-label="Hauptnavigation">
+      <ul>
+        <li><a href="#leistungen" data-i18n="nav.services">Leistungen</a></li>
+        <li><a href="#schnittzeiten" data-i18n="nav.season">Schnittzeiten</a></li>
+        <li><a href="#gewerbe" data-i18n="nav.b2b">Gewerbekunden</a></li>
+        <li><a href="#referenzen" data-i18n="nav.refs">Referenzen</a></li>
+        <li><a href="#kontakt" data-i18n="nav.contact">Kontakt</a></li>
+        <li class="nav-cta-mobile"><a class="btn btn-primary" href="#kontakt" data-i18n="nav.cta">Anfrage senden</a></li>
+      </ul>
+    </nav>
+
+    <button class="color-switch" type="button" aria-label="Farbschema wechseln" title="Farbschema wechseln"><span class="dot" aria-hidden="true"></span></button>
+    <button class="lang-switch" type="button" aria-label="Switch to English">EN</button>
+
+    <a class="nav-phone" href="tel:+490000000000">☎ <strong>0000&nbsp;/&nbsp;000&nbsp;00&nbsp;00</strong></a>
+    <a class="btn btn-primary nav-cta" href="#kontakt" data-i18n="nav.cta">Anfrage senden</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ================= HERO MIT KARUSSELL ================= -->
+<section class="hero" aria-label="Einführung">
+  <div class="carousel" aria-roledescription="Karussell" aria-label="Bilder unserer Arbeit">
+    <div class="carousel-track" tabindex="0">
+      <div class="carousel-slide" role="group" aria-roledescription="Folie" aria-label="Bild 1 von 4">
+        <img class="ph" src="pexels-solar-1600.jpg" alt="Photovoltaik-Module auf dem Ziegeldach eines Wohnhauses">
+      </div>
+      <div class="carousel-slide" role="group" aria-roledescription="Folie" aria-label="Bild 2 von 4">
+        <img class="ph" src="hedge-trimming-1600.jpg" alt="Heckenschnitt mit der Motorschere" loading="lazy">
+      </div>
+      <div class="carousel-slide" role="group" aria-roledescription="Folie" aria-label="Bild 3 von 4">
+        <img class="ph" src="declan-garden-1600.jpg" alt="Grüner Garten mit gepflegtem Rasen und altem Baumbestand" loading="lazy">
+      </div>
+      <div class="carousel-slide" role="group" aria-roledescription="Folie" aria-label="Bild 4 von 4">
+        <img class="ph" src="solar-1600.jpg" alt="Reinigung einer Photovoltaikanlage auf dem Dach" loading="lazy">
+      </div>
+    </div>
+    <button class="carousel-btn prev" aria-label="Vorheriges Bild" data-i18n-label="car.prev">‹</button>
+    <button class="carousel-btn next" aria-label="Nächstes Bild" data-i18n-label="car.next">›</button>
+    <div class="carousel-dots" role="tablist" aria-label="Bildauswahl"></div>
+  </div>
+
+  <div class="wrap hero-copy">
+    <h1 data-i18n="hero.h1">Ihr Grundstück in guten Händen&nbsp;– <em>mit kurzfristigen Terminen.</em></h1>
+    <p data-i18n="hero.p">Photovoltaik-Reinigung, Heckenschnitt, Gartenpflege und mehr im Raum
+       Ulm&nbsp;– zuverlässig, ordentlich und ohne lange Wartezeit.
+       Besichtigung und Angebot sind kostenlos.</p>
+    <div class="hero-actions">
+      <a class="btn btn-primary" href="#kontakt" data-i18n="hero.cta1">Jetzt Termin anfragen</a>
+      <a class="btn btn-ghost" href="#leistungen" data-i18n="hero.cta2">Leistungen ansehen</a>
+    </div>
+  </div>
+</section>
+
+<!-- Vertrauensleiste -->
+<div class="trust" role="note" aria-label="Fakten zum Betrieb">
+  <ul>
+    <li data-i18n="trust.1">Tätig seit 2021</li>
+    <li data-i18n="trust.2">Eingetragener Betrieb (IHK)</li>
+    <li data-i18n="trust.3">Kostenlose Besichtigung vor Ort</li>
+    <li data-i18n="trust.4">Einsatzgebiet: Raum Ulm, Baden-Württemberg &amp; Bayern</li>
+  </ul>
+</div>
+
+<!-- ================= LEISTUNGEN ================= -->
+<section id="leistungen" aria-labelledby="leistungen-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="sv.kicker">Leistungen</span>
+      <h2 id="leistungen-h" data-i18n="sv.h2">Was wir für Sie erledigen</h2>
+      <p data-i18n="sv.p">Vom Solardach bis zur Hecke: Pflege rund um Haus und Grundstück,
+         für Privatkunden wie für Unternehmen.</p>
+    </div>
+
+    <div class="services-grid">
+      <article class="service-card featured reveal">
+        <img class="ph" src="pexels-solar-1600.jpg" alt="Photovoltaikanlage auf einem Hausdach" loading="lazy">
+        <div class="card-body">
+          <span class="badge" data-i18n="sv.pv.badge">Am häufigsten angefragt</span>
+          <h3 data-i18n="sv.pv.h3">Photovoltaik-Reinigung</h3>
+          <p data-i18n="sv.pv.p">Saubere Module liefern spürbar mehr Ertrag. Wir reinigen
+             Photovoltaik-Anlagen schonend und gründlich&nbsp;– auf Wohnhäusern,
+             Hallen und landwirtschaftlichen Gebäuden.</p>
+          <a href="#kontakt" data-i18n="sv.pv.a">Anfrage zur PV-Reinigung</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal" data-delay="1">
+        <img class="ph" src="hedge-trimming-1600.jpg" alt="Formschnitt einer Buchsbaumhecke" loading="lazy">
+        <div class="card-body">
+          <h3 data-i18n="sv.hedge.h3">Heckenschnitt</h3>
+          <p data-i18n="sv.hedge.p">Formschnitt und Rückschnitt zur richtigen Jahreszeit&nbsp;–
+             inklusive Abtransport des Schnittguts.</p>
+          <a href="#kontakt" data-i18n="sv.hedge.a">Anfrage zum Heckenschnitt</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal">
+        <img class="ph" src="declan-garden-1600.jpg" alt="Gepflegter Privatgarten mit Rasen und altem Baumbestand" loading="lazy">
+        <div class="card-body">
+          <h3 data-i18n="sv.garden.h3">Gartenpflege</h3>
+          <p data-i18n="sv.garden.p">Regelmäßige oder einmalige Pflege: Rasen, Beete, Sträucher und
+             alles, was ein gepflegter Garten braucht.</p>
+          <a href="#kontakt" data-i18n="sv.garden.a">Anfrage zur Gartenpflege</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal" data-delay="1">
+        <img class="ph" src="tree cut.jpg" alt="Baumpfleger bei der Arbeit in der Baumkrone" loading="lazy">
+        <div class="card-body">
+          <h3 data-i18n="sv.tree.h3">Baumpflege &amp; Baumfällung</h3>
+          <p data-i18n="sv.tree.p">Fachgerechter Schnitt, Kronenpflege und sichere Fällung&nbsp;–
+             auch dort, wo wenig Platz ist.</p>
+          <a href="#kontakt" data-i18n="sv.tree.a">Anfrage zur Baumpflege</a>
+        </div>
+      </article>
+
+      <article class="service-card reveal" data-delay="2">
+        <img class="ph" src="eresz.jpg" alt="Mit Laub und Moos verstopfte Dachrinne" loading="lazy">
+        <div class="card-body">
+          <h3 data-i18n="sv.gutter.h3">Dachrinnenreinigung</h3>
+          <p data-i18n="sv.gutter.p">Freie Rinnen und Fallrohre schützen die Fassade&nbsp;– ideal
+             kombinierbar mit der PV-Reinigung.</p>
+          <a href="#kontakt" data-i18n="sv.gutter.a">Anfrage zur Dachrinnenreinigung</a>
+        </div>
+      </article>
+    </div>
+
+    <p class="winter-note reveal" data-i18n="sv.winter">
+      <strong>Winterdienst:</strong> Für Bestandskunden übernehmen wir in
+      begrenztem Umfang auch Schneeräumung und Streudienst. Sprechen Sie uns an.
+    </p>
+  </div>
+</section>
+
+<!-- ================= ABLAUF ================= -->
+<section class="process" aria-labelledby="ablauf-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="pr.kicker">So läuft es ab</span>
+      <h2 id="ablauf-h" data-i18n="pr.h2">Von der Anfrage bis zum Termin</h2>
+      <p data-i18n="pr.p">Jedes Grundstück ist anders, deshalb nennen wir keine Pauschalpreise.
+         Dafür ist der Weg zum Angebot einfach und verbindlich:</p>
+    </div>
+    <ol class="steps">
+      <li class="reveal">
+        <h3 data-i18n="pr.s1.h3">Anfrage</h3>
+        <p data-i18n="pr.s1.p">Per Formular, Telefon oder E-Mail. Ein Foto von Dach, Hecke oder
+           Rinne beschleunigt alles.</p>
+      </li>
+      <li class="reveal" data-delay="1">
+        <h3 data-i18n="pr.s2.h3">Kostenlose Besichtigung</h3>
+        <p data-i18n="pr.s2.p">Wir schauen uns die Situation vor Ort an&nbsp;– unverbindlich und
+           ohne Kosten für Sie.</p>
+      </li>
+      <li class="reveal" data-delay="2">
+        <h3 data-i18n="pr.s3.h3">Schriftliches Angebot</h3>
+        <p data-i18n="pr.s3.p">Sie erhalten ein klares Angebot mit allen enthaltenen Leistungen,
+           inklusive Anfahrt und Entsorgung.</p>
+      </li>
+      <li class="reveal" data-delay="2">
+        <h3 data-i18n="pr.s4.h3">Terminvereinbarung</h3>
+        <p data-i18n="pr.s4.p">Dank kurzer Vorlaufzeiten finden wir schnell einen Termin, der
+           Ihnen passt.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= SCHNITTZEITEN ================= -->
+<section class="season" id="schnittzeiten" aria-labelledby="schnitt-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="se.kicker">Gut zu wissen</span>
+      <h2 id="schnitt-h" data-i18n="se.h2">Wann darf was geschnitten werden?</h2>
+      <p data-i18n="se.p">In welchen Monaten sind Heckenschnitt und Gehölzrückschnitt
+         überhaupt erlaubt? Hier die wichtigsten Regeln im Überblick.</p>
+    </div>
+
+    <div class="table-scroll reveal">
+      <table class="season-table">
+        <caption style="position:absolute;left:-9999px" data-i18n="se.caption">Beispielmonate und erlaubte Schnittarbeiten</caption>
+        <thead>
+          <tr>
+            <th scope="col" data-i18n="se.th1">Monat</th>
+            <th scope="col" data-i18n="se.th2">Radikaler Rückschnitt / Rodung</th>
+            <th scope="col" data-i18n="se.th3">Form- und Pflegeschnitt</th>
+            <th scope="col" data-i18n="se.th4">Empfehlung</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong data-i18n="se.m.feb">Februar</strong></td>
+            <td><span class="tag tag-ok" data-i18n="se.ok">Erlaubt</span></td>
+            <td><span class="tag tag-ok" data-i18n="se.ok">Erlaubt</span></td>
+            <td data-i18n="se.rec.feb">Obstbaum-Winterschnitt, radikale Rückschnitte und Fällungen
+                jetzt abschließen&nbsp;– ab 1.&nbsp;März beginnt die gesetzliche Schonzeit.</td>
+          </tr>
+          <tr>
+            <td><strong data-i18n="se.m.apr">April</strong></td>
+            <td><span class="tag tag-no" data-i18n="se.no">Verboten</span></td>
+            <td><span class="tag tag-part" data-i18n="se.soft">Nur schonend</span></td>
+            <td data-i18n="se.rec.apr">Nur schonender Pflegeschnitt des Zuwachses; vor jedem Schnitt
+                auf besetzte Nester prüfen (§&nbsp;44 BNatSchG). Gute Zeit für Pflanzung und Rasenpflege.</td>
+          </tr>
+          <tr>
+            <td><strong data-i18n="se.m.jul">Juli</strong></td>
+            <td><span class="tag tag-no" data-i18n="se.no">Verboten</span></td>
+            <td><span class="tag tag-part" data-i18n="se.soft">Nur schonend</span></td>
+            <td data-i18n="se.rec.jul">Formschnitt der Hecken (z.&nbsp;B. Hainbuche), Sommerschnitt
+                der Obstbäume, Steinobst direkt nach der Ernte schneiden.</td>
+          </tr>
+          <tr>
+            <td><strong data-i18n="se.m.oct">Oktober</strong></td>
+            <td><span class="tag tag-ok" data-i18n="se.ok">Erlaubt</span></td>
+            <td><span class="tag tag-ok" data-i18n="se.ok">Erlaubt</span></td>
+            <td data-i18n="se.rec.oct">Ab 1.&nbsp;Oktober sind radikaler Rückschnitt, Fällung und
+                Heckenentfernung wieder zulässig; beste Pflanzzeit für Gehölze.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p class="season-note reveal" data-i18n="se.note">
+      Hinweis: Grundlage ist §&nbsp;39 Abs.&nbsp;5 BNatSchG&nbsp;– vom 1.&nbsp;März bis
+      30.&nbsp;September sind radikale Rückschnitte, das Auf-den-Stock-Setzen und die
+      Beseitigung von Hecken und Gehölzen verboten; schonende Form- und Pflegeschnitte
+      bleiben erlaubt. Der Artenschutz (§&nbsp;44 BNatSchG) gilt ganzjährig: Vor jedem
+      Schnitt wird auf besetzte Nester geprüft. Diese Übersicht ist keine Rechtsberatung;
+      in Einzelfällen entscheidet die zuständige Naturschutzbehörde.
+    </p>
+
+    <a class="btn btn-dark reveal" href="#kontakt" data-i18n="se.btn">Zur vollständigen Schnittzeiten-Übersicht</a>
+  </div>
+</section>
+
+<!-- ================= GEWERBEKUNDEN ================= -->
+<section class="b2b" id="gewerbe" aria-labelledby="b2b-h">
+  <div class="wrap b2b-grid">
+    <div>
+      <span class="kicker reveal" data-i18n="bb.kicker">Für Unternehmen &amp; Hausverwaltungen</span>
+      <h2 id="b2b-h" class="reveal" data-i18n="bb.h2">Grünpflege mit verlässlicher Struktur</h2>
+      <p class="reveal b2b-intro" data-i18n="bb.p">
+        Unternehmen, Hausverwaltungen und Kommunen brauchen keine schönen
+        Worte, sondern verlässliche Abläufe. Genau dafür arbeiten wir mit
+        festen Ansprechpartnern, klaren Vereinbarungen und ordentlicher
+        Abrechnung.
+      </p>
+      <ul class="reveal" data-delay="1">
+        <li data-i18n="bb.li1">Wiederkehrende Pflege nach Vereinbarung&nbsp;– wöchentlich, monatlich oder saisonal</li>
+        <li data-i18n="bb.li2">Rechnungsstellung mit allen erforderlichen Angaben</li>
+        <li data-i18n="bb.li3">Dokumentierte Leistungen auf Wunsch</li>
+        <li data-i18n="bb.li4">Ein fester Ansprechpartner für alle Objekte</li>
+        <li data-i18n="bb.li5">Kurzfristige Sondereinsätze im Einsatzgebiet</li>
+      </ul>
+      <a class="btn btn-primary reveal" data-delay="2" href="#kontakt" data-i18n="bb.btn">Gespräch für Gewerbekunden anfragen</a>
+    </div>
+    <div class="reveal" data-delay="1">
+      <img class="ph" src="garden.jpeg" alt="Frisch gemähte Rasenfläche einer gepflegten Außenanlage" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ================= REFERENZEN ================= -->
+<section id="referenzen" aria-labelledby="ref-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="rf.kicker">Referenzen</span>
+      <h2 id="ref-h" data-i18n="rf.h2">Ausgeführte Arbeiten</h2>
+      <p data-i18n="rf.p">Ein Blick auf abgeschlossene Einsätze im Einsatzgebiet. Wischen oder
+         mit den Pfeiltasten blättern.</p>
+    </div>
+    <div class="gallery-track reveal" tabindex="0" aria-label="Galerie ausgeführter Arbeiten">
+      <figure class="gallery-item">
+        <img class="ph" src="solar-1600.jpg" alt="Reinigung einer Photovoltaikanlage auf dem Dach" loading="lazy">
+        <figcaption data-i18n="rf.c1">Photovoltaik-Reinigung · Ehingen</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img class="ph" src="hedge-trimming-1600.jpg" alt="Heckenschnitt in einem Privatgarten" loading="lazy">
+        <figcaption data-i18n="rf.c2">Heckenschnitt · Öpfingen</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img class="ph" src="garden.jpeg" alt="Gepflegte Rasenfläche nach der Mahd" loading="lazy">
+        <figcaption data-i18n="rf.c3">Grünpflege für Hausverwaltung · Ulm</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img class="ph" src="tree cut.jpg" alt="Baumfällung mit Seilklettertechnik" loading="lazy">
+        <figcaption data-i18n="rf.c4">Baumfällung · Dornstadt</figcaption>
+      </figure>
+      <figure class="gallery-item">
+        <img class="ph" src="eresz2.jpg" alt="Dachrinnenreinigung mit dem Hochdruckreiniger" loading="lazy">
+        <figcaption data-i18n="rf.c5">Dachrinnenreinigung · Neu-Ulm</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- ================= EINSATZGEBIET ================= -->
+<section class="area" aria-labelledby="area-h">
+  <div class="wrap area-grid">
+    <div>
+      <span class="kicker reveal" data-i18n="ar.kicker">Einsatzgebiet</span>
+      <h2 id="area-h" class="reveal" data-i18n="ar.h2">Wir kommen zu Ihnen</h2>
+      <ul class="town-list reveal" data-delay="1">
+        <li>Öpfingen</li>
+        <li>Ehingen</li>
+        <li>Dornstadt</li>
+        <li>Ulm</li>
+        <li class="bavaria">Neu-Ulm</li>
+        <li class="bavaria">Altenstadt</li>
+      </ul>
+      <p class="area-note reveal" data-delay="1" data-i18n="ar.note">
+        Unser Einsatzgebiet umfasst beide Seiten der Donau: den Alb-Donau-Kreis
+        in <strong>Baden-Württemberg</strong> ebenso wie <strong>Neu-Ulm und
+        Altenstadt in Bayern</strong>. Die Anfahrt innerhalb dieses Gebiets ist
+        im Angebot bereits enthalten.
+      </p>
+    </div>
+    <div class="reveal" data-delay="1">
+      <!-- Zwei-Klick-Karte: Google wird erst nach Klick auf „Karte laden" kontaktiert.
+           Für die Vollversion mit 6 Ortsmarkern: Maps JavaScript API + eigener
+           API-Schlüssel (siehe Kommentar im Script unten). -->
+      <div class="map-embed" id="map-embed">
+        <div class="map-consent">
+          <p data-i18n="mp.note">Beim Laden der Karte werden Daten (u. a. Ihre IP-Adresse)
+             an Google übertragen. Details finden Sie in unserer Datenschutzerklärung.</p>
+          <button class="btn btn-dark" type="button" data-i18n="mp.btn">Karte laden</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= KONTAKT ================= -->
+<section class="contact" id="kontakt" aria-labelledby="kontakt-h">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <span class="kicker" data-i18n="ct.kicker">Kontakt</span>
+      <h2 id="kontakt-h" data-i18n="ct.h2">Anfrage senden</h2>
+      <p data-i18n="ct.p">Beschreiben Sie kurz Ihr Anliegen&nbsp;– wir melden uns zeitnah mit
+         einem Terminvorschlag für die kostenlose Besichtigung.</p>
+    </div>
+
+    <div class="contact-grid">
+      <form class="contact-form reveal" action="#" method="post" novalidate>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-name" data-i18n="ct.name">Name*</label>
+            <input id="f-name" name="name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="f-town" data-i18n="ct.town">Ort*</label>
+            <input id="f-town" name="ort" type="text" autocomplete="address-level2" required placeholder="z. B. Ehingen" data-i18n-ph="ct.town.ph">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-email" data-i18n="ct.email">E-Mail*</label>
+            <input id="f-email" name="email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="f-phone" data-i18n="ct.phone">Telefon</label>
+            <input id="f-phone" name="telefon" type="tel" autocomplete="tel">
+          </div>
+        </div>
+        <div class="field-row">
+          <div class="field">
+            <label for="f-service" data-i18n="ct.service">Leistung*</label>
+            <select id="f-service" name="leistung" required>
+              <option value="" data-i18n="ct.opt0">Bitte wählen …</option>
+              <option data-i18n="ct.opt1">Photovoltaik-Reinigung</option>
+              <option data-i18n="ct.opt2">Heckenschnitt</option>
+              <option data-i18n="ct.opt3">Gartenpflege</option>
+              <option data-i18n="ct.opt4">Baumpflege / Baumfällung</option>
+              <option data-i18n="ct.opt5">Dachrinnenreinigung</option>
+              <option data-i18n="ct.opt6">Grünpflege für Gewerbe / Hausverwaltung</option>
+              <option data-i18n="ct.opt7">Sonstiges</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="f-timing" data-i18n="ct.timing">Gewünschter Zeitraum</label>
+            <input id="f-timing" name="zeitraum" type="text" placeholder="z. B. möglichst diese Woche" data-i18n-ph="ct.timing.ph">
+          </div>
+        </div>
+        <div class="field">
+          <label for="f-message" data-i18n="ct.msg">Ihre Nachricht*</label>
+          <textarea id="f-message" name="nachricht" required placeholder="Was sollen wir uns anschauen? Größe, Lage, Besonderheiten …" data-i18n-ph="ct.msg.ph"></textarea>
+        </div>
+        <div class="field">
+          <label for="f-photo" data-i18n="ct.photo">Foto anhängen (optional)</label>
+          <input id="f-photo" name="foto" type="file" accept="image/*">
+          <p class="hint" data-i18n="ct.photo.hint">Ein Foto von Dach, Hecke oder Dachrinne hilft uns,
+             Ihnen schneller ein passendes Angebot zu machen.</p>
+        </div>
+        <button class="btn btn-primary" type="submit" data-i18n="ct.submit">Anfrage absenden</button>
+        <p class="hint" style="margin-top:.8rem" data-i18n="ct.legal">* Pflichtfelder. Hinweise zum
+           Datenschutz finden Sie in der Datenschutzerklärung.</p>
+      </form>
+
+      <aside class="contact-aside reveal" data-delay="1">
+        <h3 data-i18n="ct.aside.h3">Direkt erreichen</h3>
+        <p data-i18n="ct.aside.p">Telefonisch erreichen Sie uns am schnellsten:</p>
+        <p><a href="tel:+490000000000">☎ 0000 / 000 00 00</a><br>
+           <a href="mailto:info@example.de">info@example.de</a></p>
+        <div class="response-box" data-i18n="ct.response">
+          <strong>Kurze Vorlaufzeiten:</strong> Wir melden uns zeitnah auf jede
+          Anfrage und finden in der Regel schnell einen Besichtigungstermin.
+          <!-- Konkrete Reaktionszeit (z. B. „innerhalb eines Werktags")
+               erst zusagen, wenn der Inhaber sie bestätigt hat. -->
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <h3>Grün &amp; Grund</h3>
+        <ul>
+          <li data-i18n="ft.tag">Garten- &amp; Grundstückspflege</li>
+          <li data-i18n="ft.since">Inhabergeführter Betrieb, tätig seit 2021</li>
+          <li data-i18n="ft.street">[Straße Hausnr.]</li>
+          <li data-i18n="ft.city">[PLZ Ort]</li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="ft.sv.h3">Leistungen</h3>
+        <ul>
+          <li><a href="#leistungen" data-i18n="ft.sv1">Photovoltaik-Reinigung</a></li>
+          <li><a href="#leistungen" data-i18n="ft.sv2">Heckenschnitt</a></li>
+          <li><a href="#leistungen" data-i18n="ft.sv3">Gartenpflege</a></li>
+          <li><a href="#leistungen" data-i18n="ft.sv4">Baumpflege &amp; Baumfällung</a></li>
+          <li><a href="#leistungen" data-i18n="ft.sv5">Dachrinnenreinigung</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="ft.area.h3">Einsatzgebiet</h3>
+        <ul>
+          <li>Öpfingen · Ehingen</li>
+          <li>Dornstadt · Ulm</li>
+          <li>Neu-Ulm · Altenstadt</li>
+          <li data-i18n="ft.states">Baden-Württemberg &amp; Bayern</li>
+        </ul>
+      </div>
+      <div>
+        <h3 data-i18n="ft.ct.h3">Kontakt</h3>
+        <ul>
+          <li><a href="tel:+490000000000">☎ 0000 / 000 00 00</a></li>
+          <li><a href="mailto:info@example.de">info@example.de</a></li>
+          <li><a href="#kontakt" data-i18n="ft.form">Anfrageformular</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span data-i18n="ft.copy">© 2026 [Firmenname]. Alle Rechte vorbehalten.</span>
+      <span>
+        <a href="/impressum">Impressum</a> ·
+        <a href="/datenschutz" data-i18n="ft.privacy">Datenschutzerklärung</a>
+      </span>
+    </div>
+  </div>
+</footer>
+
+<!-- Kontakt-Schnellwahl: öffnet bei Hover/Fokus, auf Touch per Tipp -->
+<div class="contact-fab" id="contact-fab">
+  <a class="fab-item" href="https://wa.me/490000000000" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+  </a>
+  <a class="fab-item" href="tel:+490000000000" aria-label="Anrufen" title="Anrufen" data-i18n-label="fab.call">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+  </a>
+  <a class="fab-item" href="mailto:info@example.de" aria-label="E-Mail schreiben" title="E-Mail schreiben" data-i18n-label="fab.mail">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+  </a>
+  <button class="fab-toggle" type="button" aria-expanded="false" aria-label="Kontaktoptionen anzeigen" data-i18n-label="fab.toggle">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-2 12H6v-2h12v2zm0-3H6V9h12v2zm0-3H6V6h12v2z"/></svg>
+  </button>
+</div>
+
+<script>
+document.documentElement.classList.add('js');
+
+/* ================= SPRACHUMSCHALTUNG (DE Standard, EN dezent) =================
+   Deutsch bleibt im Markup; die englischen Texte liegen im Wörterbuch EN.
+   Beim ersten Umschalten werden die deutschen Originale aus dem DOM gesichert,
+   damit der Rückweg verlustfrei ist. Auswahl wird in localStorage gemerkt.
+   EN-Texte ebenfalls vor Veröffentlichung von Muttersprachler prüfen. */
+var I18N = (function(){
+  var EN = {
+    "wm.tag":"Garden &amp; property services · Ulm region",
+    "nav.services":"Services",
+    "nav.season":"Cutting seasons",
+    "nav.b2b":"Business clients",
+    "nav.refs":"References",
+    "nav.contact":"Contact",
+    "nav.cta":"Send inquiry",
+    "car.prev":"Previous image",
+    "car.next":"Next image",
+    "hero.h1":"Your property in good hands&nbsp;– <em>with short lead times.</em>",
+    "hero.p":"Solar panel cleaning, hedge trimming, garden maintenance and more in the Ulm region&nbsp;– reliable, tidy and without a long wait. Site visit and quote are free of charge.",
+    "hero.cta1":"Request an appointment",
+    "hero.cta2":"View our services",
+    "trust.1":"In business since 2021",
+    "trust.2":"Registered business (IHK)",
+    "trust.3":"Free on-site assessment",
+    "trust.4":"Service area: Ulm region, Baden-Württemberg &amp; Bavaria",
+    "sv.kicker":"Services",
+    "sv.h2":"What we take care of for you",
+    "sv.p":"From the solar roof to the hedge: maintenance around your house and property, for private and business customers alike.",
+    "sv.pv.badge":"Most requested",
+    "sv.pv.h3":"Solar panel cleaning",
+    "sv.pv.p":"Clean modules deliver noticeably more yield. We clean photovoltaic systems gently and thoroughly&nbsp;– on homes, industrial halls and farm buildings.",
+    "sv.pv.a":"Inquire about solar cleaning",
+    "sv.hedge.h3":"Hedge trimming",
+    "sv.hedge.p":"Shaping and cutting back at the right time of year&nbsp;– including removal of the cuttings.",
+    "sv.hedge.a":"Inquire about hedge trimming",
+    "sv.garden.h3":"Garden maintenance",
+    "sv.garden.p":"Regular or one-off care: lawns, beds, shrubs and everything a well-kept garden needs.",
+    "sv.garden.a":"Inquire about garden care",
+    "sv.tree.h3":"Tree care &amp; felling",
+    "sv.tree.p":"Professional pruning, crown care and safe felling&nbsp;– even where space is tight.",
+    "sv.tree.a":"Inquire about tree care",
+    "sv.gutter.h3":"Gutter cleaning",
+    "sv.gutter.p":"Clear gutters and downpipes protect the façade&nbsp;– ideally combined with solar panel cleaning.",
+    "sv.gutter.a":"Inquire about gutter cleaning",
+    "sv.winter":"<strong>Winter service:</strong> For existing customers we also take on snow clearing and gritting to a limited extent. Just ask us.",
+    "pr.kicker":"How it works",
+    "pr.h2":"From inquiry to appointment",
+    "pr.p":"Every property is different, which is why we don't quote flat rates. Instead, the path to a quote is simple and binding:",
+    "pr.s1.h3":"Inquiry",
+    "pr.s1.p":"By form, phone or e-mail. A photo of the roof, hedge or gutter speeds everything up.",
+    "pr.s2.h3":"Free site visit",
+    "pr.s2.p":"We take a look at the situation on site&nbsp;– non-binding and free of charge for you.",
+    "pr.s3.h3":"Written quote",
+    "pr.s3.p":"You receive a clear quote listing everything included, travel and disposal among it.",
+    "pr.s4.h3":"Scheduling",
+    "pr.s4.p":"Thanks to short lead times we quickly find a date that suits you.",
+    "se.kicker":"Good to know",
+    "se.h2":"When may what be cut?",
+    "se.p":"In which months are hedge trimming and cutting back woody plants actually allowed? Here are the key rules at a glance.",
+    "se.caption":"Sample months and permitted cutting work",
+    "se.th1":"Month",
+    "se.th2":"Heavy cutting back / removal",
+    "se.th3":"Shaping &amp; maintenance cuts",
+    "se.th4":"Recommendation",
+    "se.m.feb":"February",
+    "se.m.apr":"April",
+    "se.m.jul":"July",
+    "se.m.oct":"October",
+    "se.ok":"Allowed",
+    "se.no":"Prohibited",
+    "se.soft":"Gentle only",
+    "se.rec.feb":"Finish fruit-tree winter pruning, heavy cutbacks and fellings now&nbsp;– the legal protection period starts on 1&nbsp;March.",
+    "se.rec.apr":"Only gentle maintenance pruning of new growth; check for occupied nests before any cut (Art.&nbsp;44 BNatSchG). Good time for planting and lawn care.",
+    "se.rec.jul":"Shape hedges (e.g. hornbeam), summer-prune fruit trees, cut stone fruit right after harvest.",
+    "se.rec.oct":"From 1&nbsp;October heavy cutbacks, felling and hedge removal are permitted again; best planting season for trees and shrubs.",
+    "se.note":"Note: Based on Art.&nbsp;39(5) of the German Federal Nature Conservation Act (BNatSchG)&nbsp;– from 1&nbsp;March to 30&nbsp;September heavy cutbacks, coppicing and removal of hedges and woody plants are prohibited; gentle shaping and maintenance pruning remains allowed. Species protection (Art.&nbsp;44 BNatSchG) applies all year round: every job starts with a check for occupied nests. This overview is not legal advice; in individual cases the responsible nature conservation authority decides.",
+    "se.btn":"See the full cutting seasons overview",
+    "bb.kicker":"For companies &amp; property managers",
+    "bb.h2":"Green maintenance with reliable structure",
+    "bb.p":"Companies, property managers and municipalities don't need fine words&nbsp;– they need dependable processes. That is exactly how we work: fixed contacts, clear agreements and proper invoicing.",
+    "bb.li1":"Recurring maintenance by agreement&nbsp;– weekly, monthly or seasonal",
+    "bb.li2":"Invoicing with all required details",
+    "bb.li3":"Documented services on request",
+    "bb.li4":"One fixed contact person for all properties",
+    "bb.li5":"Short-notice special call-outs within the service area",
+    "bb.btn":"Request a business consultation",
+    "rf.kicker":"References",
+    "rf.h2":"Completed work",
+    "rf.p":"A look at completed jobs in our service area. Swipe or use the arrow keys to browse.",
+    "rf.c1":"Solar panel cleaning · Ehingen",
+    "rf.c2":"Hedge trimming · Öpfingen",
+    "rf.c3":"Green maintenance for a property manager · Ulm",
+    "rf.c4":"Tree felling · Dornstadt",
+    "rf.c5":"Gutter cleaning · Neu-Ulm",
+    "ar.kicker":"Service area",
+    "ar.h2":"We come to you",
+    "ar.note":"Our service area covers both sides of the Danube: the Alb-Donau district in <strong>Baden-Württemberg</strong> as well as <strong>Neu-Ulm and Altenstadt in Bavaria</strong>. Travel within this area is already included in the quote.",
+    "ct.kicker":"Contact",
+    "ct.h2":"Send an inquiry",
+    "ct.p":"Briefly describe what you need&nbsp;– we will get back to you promptly with a proposed date for the free site visit.",
+    "ct.name":"Name*",
+    "ct.town":"Town*",
+    "ct.town.ph":"e.g. Ehingen",
+    "ct.email":"E-mail*",
+    "ct.phone":"Phone",
+    "ct.service":"Service*",
+    "ct.opt0":"Please choose …",
+    "ct.opt1":"Solar panel cleaning",
+    "ct.opt2":"Hedge trimming",
+    "ct.opt3":"Garden maintenance",
+    "ct.opt4":"Tree care / felling",
+    "ct.opt5":"Gutter cleaning",
+    "ct.opt6":"Green maintenance for business / property managers",
+    "ct.opt7":"Other",
+    "ct.timing":"Preferred timeframe",
+    "ct.timing.ph":"e.g. this week if possible",
+    "ct.msg":"Your message*",
+    "ct.msg.ph":"What should we look at? Size, location, special features …",
+    "ct.photo":"Attach a photo (optional)",
+    "ct.photo.hint":"A photo of the roof, hedge or gutter helps us send you a suitable quote faster.",
+    "ct.submit":"Send inquiry",
+    "ct.legal":"* Required fields. See our privacy policy for details on data protection.",
+    "ct.aside.h3":"Reach us directly",
+    "ct.aside.p":"The fastest way to reach us is by phone:",
+    "ct.response":"<strong>Short lead times:</strong> We respond promptly to every inquiry and can usually offer a site-visit date quickly.",
+    "ft.tag":"Garden &amp; property services",
+    "ft.since":"Owner-run business, active since 2021",
+    "ft.street":"[Street and number]",
+    "ft.city":"[Postcode, town]",
+    "ft.sv.h3":"Services",
+    "ft.sv1":"Solar panel cleaning",
+    "ft.sv2":"Hedge trimming",
+    "ft.sv3":"Garden maintenance",
+    "ft.sv4":"Tree care &amp; felling",
+    "ft.sv5":"Gutter cleaning",
+    "ft.area.h3":"Service area",
+    "ft.states":"Baden-Württemberg &amp; Bavaria",
+    "ft.ct.h3":"Contact",
+    "ft.form":"Inquiry form",
+    "ft.copy":"© 2026 [Company name]. All rights reserved.",
+    "ft.privacy":"Privacy policy",
+    "fab.call":"Call us",
+    "fab.mail":"Write an e-mail",
+    "fab.toggle":"Show contact options",
+    "mp.note":"Loading the map transfers data (including your IP address) to Google. See our privacy policy for details.",
+    "mp.btn":"Load map"
+  };
+
+  var STRINGS = {
+    de:{ menuOpen:"Menü öffnen", menuClose:"Menü schließen",
+         dot:function(i){return "Bild "+i+" anzeigen";},
+         switchLabel:"Switch to English", switchText:"EN",
+         themeLabel:"Farbschema wechseln",
+         title:"Garten- & Grundstückspflege im Raum Ulm – kurzfristige Termine" },
+    en:{ menuOpen:"Open menu", menuClose:"Close menu",
+         dot:function(i){return "Show image "+i;},
+         switchLabel:"Zur deutschen Version wechseln", switchText:"DE",
+         themeLabel:"Switch color scheme",
+         title:"Garden & property services in the Ulm region – short lead times" }
+  };
+
+  var DE = {}, DE_PH = {}, DE_LABEL = {};
+  var lang = "de";
+
+  /* Deutsche Originale aus dem DOM sichern (einmalig beim Laden) */
+  document.querySelectorAll("[data-i18n]").forEach(function(el){
+    var k = el.getAttribute("data-i18n");
+    if(!(k in DE)) DE[k] = el.innerHTML;
+  });
+  document.querySelectorAll("[data-i18n-ph]").forEach(function(el){
+    var k = el.getAttribute("data-i18n-ph");
+    if(!(k in DE_PH)) DE_PH[k] = el.getAttribute("placeholder");
+  });
+  document.querySelectorAll("[data-i18n-label]").forEach(function(el){
+    var k = el.getAttribute("data-i18n-label");
+    if(!(k in DE_LABEL)) DE_LABEL[k] = el.getAttribute("aria-label");
+  });
+
+  function setLang(next){
+    lang = (next === "en") ? "en" : "de";
+    document.documentElement.lang = lang;
+    document.title = STRINGS[lang].title;
+
+    document.querySelectorAll("[data-i18n]").forEach(function(el){
+      var k = el.getAttribute("data-i18n");
+      var v = (lang === "en") ? EN[k] : DE[k];
+      if(v !== undefined) el.innerHTML = v;
+    });
+    document.querySelectorAll("[data-i18n-ph]").forEach(function(el){
+      var k = el.getAttribute("data-i18n-ph");
+      var v = (lang === "en") ? EN[k] : DE_PH[k];
+      if(v !== undefined) el.setAttribute("placeholder", v);
+    });
+    document.querySelectorAll("[data-i18n-label]").forEach(function(el){
+      var k = el.getAttribute("data-i18n-label");
+      var v = (lang === "en") ? EN[k] : DE_LABEL[k];
+      if(v !== undefined) el.setAttribute("aria-label", v);
+    });
+
+    var btn = document.querySelector(".lang-switch");
+    btn.textContent = STRINGS[lang].switchText;
+    btn.setAttribute("aria-label", STRINGS[lang].switchLabel);
+
+    document.dispatchEvent(new CustomEvent("langchange"));
+    try{ localStorage.setItem("lang", lang); }catch(e){}
+  }
+
+  document.querySelector(".lang-switch").addEventListener("click", function(){
+    setLang(lang === "de" ? "en" : "de");
+  });
+
+  /* Gespeicherte Auswahl wiederherstellen */
+  try{
+    if(localStorage.getItem("lang") === "en") setLang("en");
+  }catch(e){}
+
+  return {
+    get lang(){ return lang; },
+    str: function(){ return STRINGS[lang]; }
+  };
+})();
+
+/* ---------- Google Maps: Zwei-Klick-Einbindung (DSGVO) ----------
+   Aktuell: schlüsselfreies Embed, zentriert auf Ulm.
+   Upgrade auf Maps JavaScript API mit Markern für alle 6 Orte:
+   1. API-Schlüssel in der Google Cloud Console anlegen (Maps JavaScript API)
+   2. Nach Zustimmung statt des iframes laden:
+      https://maps.googleapis.com/maps/api/js?key=API_SCHLUESSEL&callback=initMap
+   3. In initMap(): new google.maps.Map(...) + 6× AdvancedMarkerElement
+   Die Zustimmung-erst-Logik unten unbedingt beibehalten. */
+(function(){
+  var box = document.getElementById('map-embed');
+  var btn = box.querySelector('button');
+  function loadMap(){
+    if(box.classList.contains('loaded')) return;
+    var f = document.createElement('iframe');
+    f.src = 'https://maps.google.com/maps?q=Ulm,Deutschland&z=10&hl=de&output=embed';
+    f.title = 'Google Maps – Einsatzgebiet Raum Ulm';
+    f.loading = 'lazy';
+    f.allowFullscreen = true;
+    f.referrerPolicy = 'no-referrer-when-downgrade';
+    box.appendChild(f);
+    box.classList.add('loaded');
+    try{ localStorage.setItem('mapsConsent','1'); }catch(e){}
+  }
+  btn.addEventListener('click', loadMap);
+  try{
+    if(localStorage.getItem('mapsConsent') === '1') loadMap();
+  }catch(e){}
+})();
+
+/* ---------- Kontakt-Schnellwahl (Touch-Toggle, Escape, Klick daneben) ---------- */
+(function(){
+  var fab = document.getElementById('contact-fab');
+  var toggle = fab.querySelector('.fab-toggle');
+  function setOpen(open){
+    fab.classList.toggle('open', open);
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  toggle.addEventListener('click', function(){
+    setOpen(!fab.classList.contains('open'));
+  });
+  document.addEventListener('click', function(e){
+    if(!fab.contains(e.target)) setOpen(false);
+  });
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') setOpen(false);
+  });
+})();
+
+/* ---------- Farbschema-Umschaltung (Forest ⇄ Premium) ---------- */
+(function(){
+  var btn = document.querySelector('.color-switch');
+  function apply(theme){
+    if(theme === 'premium'){
+      document.documentElement.setAttribute('data-theme','premium');
+    }else{
+      document.documentElement.removeAttribute('data-theme');
+    }
+    try{ localStorage.setItem('theme', theme); }catch(e){}
+  }
+  btn.addEventListener('click', function(){
+    var premium = document.documentElement.getAttribute('data-theme') === 'premium';
+    apply(premium ? 'forest' : 'premium');
+  });
+  function label(){
+    btn.setAttribute('aria-label', I18N.str().themeLabel);
+    btn.setAttribute('title', I18N.str().themeLabel);
+  }
+  document.addEventListener('langchange', label);
+  label();
+  try{
+    if(localStorage.getItem('theme') === 'premium') apply('premium');
+  }catch(e){}
+})();
+
+/* ---------- Mobile Navigation ---------- */
+(function(){
+  var toggle = document.querySelector('.nav-toggle');
+  var nav = document.getElementById('main-nav');
+  function label(open){
+    toggle.setAttribute('aria-label', open ? I18N.str().menuClose : I18N.str().menuOpen);
+  }
+  toggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    label(open);
+  });
+  nav.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+      label(false);
+    }
+  });
+  /* Tippen außerhalb des offenen Menüs schließt es */
+  document.addEventListener('click', function(e){
+    if(nav.classList.contains('open') && !nav.contains(e.target) && !toggle.contains(e.target)){
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded','false');
+      label(false);
+    }
+  });
+  document.addEventListener('langchange', function(){
+    label(nav.classList.contains('open'));
+  });
+})();
+
+/* ---------- Hero-Karussell (kein Autoplay) ---------- */
+(function(){
+  var track = document.querySelector('.carousel-track');
+  var slides = track.children;
+  var dotsWrap = document.querySelector('.carousel-dots');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  for(var i=0;i<slides.length;i++){
+    (function(i){
+      var d = document.createElement('button');
+      d.setAttribute('aria-label', I18N.str().dot(i+1));
+      d.addEventListener('click', function(){ goTo(i); });
+      dotsWrap.appendChild(d);
+    })(i);
+  }
+  var dots = dotsWrap.children;
+
+  document.addEventListener('langchange', function(){
+    for(var i=0;i<dots.length;i++){
+      dots[i].setAttribute('aria-label', I18N.str().dot(i+1));
+    }
+  });
+
+  function current(){
+    return Math.round(track.scrollLeft / track.clientWidth);
+  }
+  function goTo(i){
+    i = Math.max(0, Math.min(slides.length-1, i));
+    track.scrollTo({left: i * track.clientWidth, behavior: reduced ? 'auto' : 'smooth'});
+  }
+  function updateDots(){
+    var c = current();
+    for(var i=0;i<dots.length;i++){
+      dots[i].setAttribute('aria-current', i===c ? 'true' : 'false');
+    }
+  }
+  document.querySelector('.carousel-btn.prev').addEventListener('click', function(){ goTo(current()-1); });
+  document.querySelector('.carousel-btn.next').addEventListener('click', function(){ goTo(current()+1); });
+  track.addEventListener('keydown', function(e){
+    if(e.key === 'ArrowLeft'){ e.preventDefault(); goTo(current()-1); }
+    if(e.key === 'ArrowRight'){ e.preventDefault(); goTo(current()+1); }
+  });
+  var t;
+  track.addEventListener('scroll', function(){
+    clearTimeout(t); t = setTimeout(updateDots, 80);
+  });
+  updateDots();
+})();
+
+/* ---------- Scroll-Reveal (respektiert prefers-reduced-motion) ---------- */
+(function(){
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  if(!('IntersectionObserver' in window)){
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('is-visible'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
+      }
+    });
+  }, {threshold: 0.05, rootMargin: '0px 0px 120px 0px'}); /* startet, BEVOR das Element sichtbar wird – kein „Nachladen"-Gefühl */
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+# Kliens-/projektdokumentumok – NEM publikusak (a repo publikus a GitHub Pages miatt!)
+client-context.md
+layout-prompt.md
+*.pdf
+
+# Nyers/nem használt képek – az oldal csak az optimalizált (-1600) verziókat használja
+declan-sun-*.jpg
+pexels-sdvmovies-*.jpg
+hedge trimming.jpeg
+solar.jpg
+solar panel.jpg
+garden.jpg
+
+# Rendszer/editor
+Thumbs.db
+Desktop.ini
+.vscode/
