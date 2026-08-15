@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="de" data-theme="premium">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +34,7 @@
 }
 
 :root{
-  /* Farbschema „Forest" (Standard): Grün, Braun, Weiß, Schwarz, Gelb */
+  /* Farbschema „Forest": Grün, Braun, Weiß, Schwarz, Gelb – per Schalter wählbar */
   --green-900:#1d3524;
   --green-700:#2c4f34;
   --green-600:#3a6544;
@@ -57,8 +57,9 @@
   --maxw:1160px;
   --shadow:0 2px 14px rgba(22,22,19,.07);
 }
-/* Farbschema „Premium" (inspiriert von premiumfahaz.hu):
-   Weiß, Schwarz/Anthrazit, Bronze-Gold – umschaltbar per Button im Header */
+/* Farbschema „Premium" (STANDARD, inspiriert von premiumfahaz.hu):
+   Weiß, Schwarz/Anthrazit, Bronze-Gold – dunkler und zurückhaltender;
+   das Attribut data-theme="premium" ist direkt am <html>-Tag gesetzt */
 [data-theme="premium"]{
   --green-900:#1e1e1e;
   --green-700:#2d2d2b;
@@ -275,7 +276,8 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
   .carousel-slide .ph{aspect-ratio:4/3} /* höherer Bildausschnitt auf schmalen Screens */
 }
 
-.hero-copy{padding:2.6rem 0 0}
+.hero-copy{padding-top:3.6rem} /* Luft zwischen Bildleiste und Text; NUR padding-top,
+   damit die Seitenabstände von .wrap erhalten bleiben */
 .hero-copy h1{max-width:760px}
 .hero-copy h1 em{font-style:normal;color:var(--yellow)}
 .hero-copy p{
@@ -283,7 +285,6 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
 }
 .hero-actions{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:1.8rem}
 @media (max-width:560px){
-  .hero-copy{padding-top:2rem}
   .hero-actions .btn{flex:1 1 100%} /* volle Breite = sichere Tippfläche */
 }
 
@@ -386,6 +387,32 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
   margin-top:1.2rem;font-size:.88rem;color:var(--ink-soft);max-width:720px;
 }
 .table-scroll{overflow-x:auto}
+.cell-label{display:none} /* Spaltenname in der Zelle – nur in der Mobil-Kartenansicht sichtbar */
+
+/* Mobil: Tabelle wird zu Monats-Karten gestapelt statt seitlich zu scrollen */
+@media (max-width:640px){
+  .season-table{min-width:0;display:block;border:0;background:transparent;box-shadow:none}
+  .season-table thead{display:none}
+  .season-table tbody{display:block}
+  .season-table tr{
+    display:block;background:var(--white);
+    border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);margin-bottom:1rem;overflow:hidden;
+  }
+  .season-table tr:last-child{margin-bottom:0}
+  .season-table td{display:block;border-bottom:1px solid var(--line);padding:.7rem 1rem}
+  .season-table td:last-child{border-bottom:0}
+  .season-table td:first-child{
+    background:var(--green-100);
+    font-family:var(--font-head);font-size:1.1rem;
+    padding:.6rem 1rem;
+  }
+  .cell-label{
+    display:block;
+    font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;
+    color:var(--ink-soft);margin-bottom:.3rem;
+  }
+}
 .season .btn{margin-top:1.8rem}
 
 /* ================= GEWERBE ================= */
@@ -541,6 +568,7 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
 /* ================= MOBILE-FEINSCHLIFF ================= */
 @media (max-width:560px){
   .wrap{padding:0 16px}
+  .hero-copy{padding-top:2.6rem} /* muss NACH der .wrap-Regel stehen (gleiche Spezifität) */
   .trust ul{padding:0 16px;gap:.35rem 1.4rem}
   section{padding:3rem 0}
   .section-head{margin-bottom:1.8rem}
@@ -776,31 +804,31 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
         <tbody>
           <tr>
             <td><strong data-i18n="se.m.feb">Februar</strong></td>
-            <td><span class="tag tag-ok" data-i18n="se.ok">Erlaubt</span></td>
-            <td><span class="tag tag-ok" data-i18n="se.ok">Erlaubt</span></td>
-            <td data-i18n="se.rec.feb">Obstbaum-Winterschnitt, radikale Rückschnitte und Fällungen
-                jetzt abschließen&nbsp;– ab 1.&nbsp;März beginnt die gesetzliche Schonzeit.</td>
+            <td><span class="cell-label" data-i18n="se.th2">Radikaler Rückschnitt / Rodung</span><span class="tag tag-ok" data-i18n="se.ok">Erlaubt</span></td>
+            <td><span class="cell-label" data-i18n="se.th3">Form- und Pflegeschnitt</span><span class="tag tag-ok" data-i18n="se.ok">Erlaubt</span></td>
+            <td><span class="cell-label" data-i18n="se.th4">Empfehlung</span><span data-i18n="se.rec.feb">Obstbaum-Winterschnitt, radikale Rückschnitte und Fällungen
+                jetzt abschließen&nbsp;– ab 1.&nbsp;März beginnt die gesetzliche Schonzeit.</span></td>
           </tr>
           <tr>
             <td><strong data-i18n="se.m.apr">April</strong></td>
-            <td><span class="tag tag-no" data-i18n="se.no">Verboten</span></td>
-            <td><span class="tag tag-part" data-i18n="se.soft">Nur schonend</span></td>
-            <td data-i18n="se.rec.apr">Nur schonender Pflegeschnitt des Zuwachses; vor jedem Schnitt
-                auf besetzte Nester prüfen (§&nbsp;44 BNatSchG). Gute Zeit für Pflanzung und Rasenpflege.</td>
+            <td><span class="cell-label" data-i18n="se.th2">Radikaler Rückschnitt / Rodung</span><span class="tag tag-no" data-i18n="se.no">Verboten</span></td>
+            <td><span class="cell-label" data-i18n="se.th3">Form- und Pflegeschnitt</span><span class="tag tag-part" data-i18n="se.soft">Nur schonend</span></td>
+            <td><span class="cell-label" data-i18n="se.th4">Empfehlung</span><span data-i18n="se.rec.apr">Nur schonender Pflegeschnitt des Zuwachses; vor jedem Schnitt
+                auf besetzte Nester prüfen (§&nbsp;44 BNatSchG). Gute Zeit für Pflanzung und Rasenpflege.</span></td>
           </tr>
           <tr>
             <td><strong data-i18n="se.m.jul">Juli</strong></td>
-            <td><span class="tag tag-no" data-i18n="se.no">Verboten</span></td>
-            <td><span class="tag tag-part" data-i18n="se.soft">Nur schonend</span></td>
-            <td data-i18n="se.rec.jul">Formschnitt der Hecken (z.&nbsp;B. Hainbuche), Sommerschnitt
-                der Obstbäume, Steinobst direkt nach der Ernte schneiden.</td>
+            <td><span class="cell-label" data-i18n="se.th2">Radikaler Rückschnitt / Rodung</span><span class="tag tag-no" data-i18n="se.no">Verboten</span></td>
+            <td><span class="cell-label" data-i18n="se.th3">Form- und Pflegeschnitt</span><span class="tag tag-part" data-i18n="se.soft">Nur schonend</span></td>
+            <td><span class="cell-label" data-i18n="se.th4">Empfehlung</span><span data-i18n="se.rec.jul">Formschnitt der Hecken (z.&nbsp;B. Hainbuche), Sommerschnitt
+                der Obstbäume, Steinobst direkt nach der Ernte schneiden.</span></td>
           </tr>
           <tr>
             <td><strong data-i18n="se.m.oct">Oktober</strong></td>
-            <td><span class="tag tag-ok" data-i18n="se.ok">Erlaubt</span></td>
-            <td><span class="tag tag-ok" data-i18n="se.ok">Erlaubt</span></td>
-            <td data-i18n="se.rec.oct">Ab 1.&nbsp;Oktober sind radikaler Rückschnitt, Fällung und
-                Heckenentfernung wieder zulässig; beste Pflanzzeit für Gehölze.</td>
+            <td><span class="cell-label" data-i18n="se.th2">Radikaler Rückschnitt / Rodung</span><span class="tag tag-ok" data-i18n="se.ok">Erlaubt</span></td>
+            <td><span class="cell-label" data-i18n="se.th3">Form- und Pflegeschnitt</span><span class="tag tag-ok" data-i18n="se.ok">Erlaubt</span></td>
+            <td><span class="cell-label" data-i18n="se.th4">Empfehlung</span><span data-i18n="se.rec.oct">Ab 1.&nbsp;Oktober sind radikaler Rückschnitt, Fällung und
+                Heckenentfernung wieder zulässig; beste Pflanzzeit für Gehölze.</span></td>
           </tr>
         </tbody>
       </table>
@@ -1360,8 +1388,10 @@ var I18N = (function(){
   }
   document.addEventListener('langchange', label);
   label();
+  /* Premium ist Standard (bereits im HTML gesetzt);
+     nur eine gespeicherte „forest"-Wahl schaltet zurück */
   try{
-    if(localStorage.getItem('theme') === 'premium') apply('premium');
+    if(localStorage.getItem('theme') === 'forest') apply('forest');
   }catch(e){}
 })();
 
