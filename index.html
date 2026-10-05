@@ -166,42 +166,57 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .nav-phone{
   text-decoration:none;color:var(--green-700);font-weight:600;font-size:.95rem;white-space:nowrap;
 }
-.nav-cta{padding:.6rem 1.1rem;font-size:.92rem}
+.nav-cta{padding:0 1.1rem;height:var(--ctl);display:inline-flex;align-items:center;font-size:.92rem;white-space:nowrap;flex:0 0 auto}
 
-/* --- Dezente Umschalter: Sprache + Farbschema --- */
-.lang-switch,.color-switch{
-  background:none;
-  border:1px solid var(--line);
-  border-radius:3px;
-  padding:.28rem .55rem;
-  font:600 .74rem var(--font-body);
-  letter-spacing:.08em;
-  color:var(--ink-soft);
-  cursor:pointer;
-  white-space:nowrap;
+/* --- Bedienelemente der Kopfzeile: alle gleich groß (--ctl) --- */
+.site-header{--ctl:40px}
+.color-switch,.nav-toggle,.lang-switch{
+  height:var(--ctl);border:1px solid var(--line);border-radius:var(--radius);
+  background:none;color:var(--ink-soft);cursor:pointer;
+  flex:0 0 auto; /* Tasten schrumpfen nie – lieber gibt der Firmenname nach */
 }
-.lang-switch:hover,.color-switch:hover{color:var(--ink);border-color:var(--ink-soft)}
-.color-switch{display:flex;align-items:center;padding:.34rem .5rem}
+.color-switch{
+  width:var(--ctl);padding:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.color-switch:hover{color:var(--ink);border-color:var(--ink-soft)}
 .color-switch .dot{
-  width:.85rem;height:.85rem;border-radius:50%;
+  width:.95rem;height:.95rem;border-radius:50%;
   background:linear-gradient(135deg,var(--green-700) 50%,var(--yellow) 50%);
   border:1px solid var(--line);
 }
+/* Sprachwahl: zwei feste Segmente DE | EN – die aktive Sprache ist gefüllt */
+.lang-switch{
+  display:inline-flex;overflow:hidden;padding:0;cursor:default;
+  border-color:var(--green-700);
+}
+.lang-switch button{
+  min-width:calc(var(--ctl) - 6px);height:100%;padding:0 .55rem;
+  border:0;background:transparent;color:var(--green-700);
+  font:700 .78rem var(--font-body);letter-spacing:.08em;cursor:pointer;
+}
+.lang-switch button + button{border-left:1px solid var(--green-700)}
+.lang-switch button:hover{background:var(--green-100)}
+.lang-switch button[aria-pressed="true"]{
+  background:var(--green-700);color:var(--white);cursor:default;
+}
+.lang-switch button:focus-visible{outline:2px solid var(--yellow);outline-offset:-3px}
 
 .nav-toggle{
   display:none;margin-left:auto;
-  background:none;border:1px solid var(--line);border-radius:var(--radius);
-  padding:.5rem .7rem;font-size:1.2rem;line-height:1;cursor:pointer;color:var(--ink);
+  width:var(--ctl);padding:0;
+  align-items:center;justify-content:center;
+  font-size:1.2rem;line-height:1;color:var(--ink);
 }
 .nav-cta-mobile{display:none}
 /* Untertitel der Wortmarke nur auf sehr breiten Screens – sonst bricht die Zeile */
 @media (max-width:1280px){
   .wordmark small{display:none}
 }
-/* Burger-Menü schon ab 1150px: darunter passt die volle Desktop-Zeile
+/* Burger-Menü schon ab 1240px: darunter passt die volle Desktop-Zeile
    (5 Menüpunkte + Schalter + Telefon + CTA) schlicht nicht hinein */
-@media (max-width:1150px){
-  .nav-toggle{display:block;min-width:44px;min-height:44px}
+@media (max-width:1240px){
+  .nav-toggle{display:flex}
   .main-nav{
     display:none;position:absolute;top:100%;left:0;right:0;
     background:var(--paper);border-bottom:1px solid var(--line);
@@ -218,15 +233,29 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
   .nav-cta-mobile .btn{display:block;width:100%;border-bottom:0}
 }
 @media (max-width:560px){
-  .nav-inner{gap:.55rem;padding:.55rem 14px}
-  .wordmark{font-size:1rem;gap:.5rem}
+  .nav-inner{gap:.4rem;padding:.55rem 12px}
+  .wordmark{font-size:.98rem;gap:.45rem}
   .wordmark img{width:34px;height:34px}
   .wordmark small{display:none} /* Untertitel weglassen – Platz für die Bedienelemente */
-  .nav-phone strong{display:none} /* nur ☎ bleibt, als runde Taste */
+  .nav-phone strong{display:none} /* nur ☎ bleibt, als Taste */
   .nav-phone{
     display:flex;align-items:center;justify-content:center;
-    width:42px;height:42px;border:1px solid var(--line);border-radius:50%;
+    width:var(--ctl);height:var(--ctl);flex:0 0 auto;
+    border:1px solid var(--line);border-radius:var(--radius);
   }
+  .wordmark{min-width:0;white-space:nowrap}
+}
+/* Sehr schmale Telefone (≤ 390px): alle Tasten etwas kleiner, damit Name + 4 Tasten in eine Zeile passen */
+@media (max-width:390px){
+  .site-header{--ctl:36px}
+  .nav-inner{gap:.3rem;padding:.5rem 10px}
+  .wordmark{font-size:.92rem;gap:.35rem}
+  .wordmark img{width:30px;height:30px}
+  .lang-switch button{padding:0 .4rem;font-size:.72rem}
+}
+/* Extrem schmal (≈ 320px): nur das Logo, der Name würde die Tasten quetschen */
+@media (max-width:340px){
+  .wordmark-text{display:none}
 }
 
 /* ================= HERO / KARUSSELL ================= */
@@ -715,7 +744,10 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
     </nav>
 
     <button class="color-switch" type="button" aria-label="Farbschema wechseln" title="Farbschema wechseln"><span class="dot" aria-hidden="true"></span></button>
-    <button class="lang-switch" type="button" aria-label="Switch to English">EN</button>
+    <div class="lang-switch" role="group" aria-label="Sprache / Language">
+      <button type="button" data-lang="de" lang="de" aria-pressed="true" aria-label="Deutsch">DE</button>
+      <button type="button" data-lang="en" lang="en" aria-pressed="false" aria-label="English">EN</button>
+    </div>
 
     <a class="nav-phone" href="tel:+490000000000">☎ <strong>0000&nbsp;/&nbsp;000&nbsp;00&nbsp;00</strong></a>
     <a class="btn btn-primary nav-cta" href="#kontakt" data-i18n="nav.cta">Anfrage senden</a>
@@ -1400,12 +1432,12 @@ var I18N = (function(){
   var STRINGS = {
     de:{ menuOpen:"Menü öffnen", menuClose:"Menü schließen",
          dot:function(i){return "Bild "+i+" anzeigen";},
-         switchLabel:"Switch to English", switchText:"EN",
+
          themeLabel:"Farbschema wechseln",
          title:"Garten- & Grundstückspflege im Raum Ulm – kurzfristige Termine" },
     en:{ menuOpen:"Open menu", menuClose:"Close menu",
          dot:function(i){return "Show image "+i;},
-         switchLabel:"Zur deutschen Version wechseln", switchText:"DE",
+
          themeLabel:"Switch color scheme",
          title:"Garden & property services in the Ulm region – short lead times" }
   };
@@ -1448,16 +1480,16 @@ var I18N = (function(){
       if(v !== undefined) el.setAttribute("aria-label", v);
     });
 
-    var btn = document.querySelector(".lang-switch");
-    btn.textContent = STRINGS[lang].switchText;
-    btn.setAttribute("aria-label", STRINGS[lang].switchLabel);
+    document.querySelectorAll(".lang-switch button").forEach(function(b){
+      b.setAttribute("aria-pressed", b.getAttribute("data-lang") === lang ? "true" : "false");
+    });
 
     document.dispatchEvent(new CustomEvent("langchange"));
     try{ localStorage.setItem("lang", lang); }catch(e){}
   }
 
-  document.querySelector(".lang-switch").addEventListener("click", function(){
-    setLang(lang === "de" ? "en" : "de");
+  document.querySelectorAll(".lang-switch button").forEach(function(b){
+    b.addEventListener("click", function(){ setLang(b.getAttribute("data-lang")); });
   });
 
   /* Gespeicherte Auswahl wiederherstellen */
