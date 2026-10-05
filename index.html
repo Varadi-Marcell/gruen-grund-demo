@@ -445,6 +445,105 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
   margin-top:.55rem;font-size:.88rem;color:var(--ink-soft);
 }
 
+/* ================= VORHER / NACHHER-SLIDER =================
+   Alle Vergleiche („Ausgeführte Arbeiten“) liegen in einem Raster (.ba-grid)
+   und teilen sich einen Bildrahmen (.ba-media) – dadurch gleich hohe Karten. */
+.ba-card figcaption{
+  margin-top:.6rem;font-size:.88rem;color:var(--ink-soft);text-align:left;
+}
+/* Gemeinsamer Bildrahmen für ALLE Vergleiche (Regler und Nebeneinander):
+   ein festes Seitenverhältnis sorgt dafür, dass alle Karten gleich hoch sind. */
+.ba-media{
+  position:relative;aspect-ratio:4/3;overflow:hidden;
+  border-radius:var(--radius);border:1px solid var(--line);
+  background:var(--green-100);
+  box-shadow:var(--shadow);
+  transition:box-shadow .35s ease;
+}
+/* Dezentes Anheben beim Überfahren – nur Schatten, kein Layout-Sprung */
+.ba-media:hover{box-shadow:0 10px 30px rgba(22,22,19,.18)}
+.ba{
+  --pos:50%;
+  touch-action:pan-y; /* vertikales Scrollen bleibt möglich, horizontales Ziehen gehört dem Regler */
+}
+.ba .ba-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ba .ba-before{clip-path:inset(0 calc(100% - var(--pos)) 0 0)} /* „Vorher" links vom Regler */
+.ba-divider{
+  position:absolute;top:0;bottom:0;left:var(--pos);
+  width:2px;margin-left:-1px;background:var(--white);
+  box-shadow:0 0 6px rgba(0,0,0,.5);pointer-events:none;
+}
+.ba-handle{
+  position:absolute;top:50%;left:var(--pos);
+  transform:translate(-50%,-50%);
+  width:46px;height:46px;border-radius:50%;
+  background:rgba(255,255,255,.92);border:2px solid var(--ink);
+  color:var(--ink);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 2px 10px rgba(0,0,0,.35);pointer-events:none;
+}
+.ba-tag{
+  position:absolute;top:.8rem;
+  font-family:var(--font-label);font-weight:400;
+  font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:.28rem .7rem;border-radius:999px;
+  background:rgba(22,22,19,.7);color:#fff;
+  pointer-events:none;
+}
+.ba-tag-before{left:.8rem}
+.ba-tag-after{right:.8rem}
+/* Unsichtbarer, gesamtfüllender Regler: bedient per Maus, Touch und
+   Pfeiltasten (Barrierefreiheit) und liefert zugleich das --pos-Maß. */
+.ba-range{
+  position:absolute;inset:0;z-index:1;
+  width:100%;height:100%;margin:0;opacity:0;
+  cursor:ew-resize;background:transparent;
+  -webkit-appearance:none;appearance:none;
+}
+.ba-range::-webkit-slider-thumb{-webkit-appearance:none;width:44px;height:100%}
+.ba-range::-moz-range-thumb{width:44px;height:1000px;border:0;opacity:0}
+/* Fokus sichtbar machen, obwohl der Regler selbst unsichtbar ist */
+.ba-range:focus-visible ~ .ba-handle{
+  background:var(--yellow);border-color:var(--ink);
+}
+/* Hinweis-Pille unten links („Regler ziehen“) */
+.ba-hint{
+  position:absolute;left:.8rem;bottom:.8rem;
+  font-family:var(--font-label);font-weight:400;
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;
+  padding:.28rem .7rem;border-radius:999px;
+  background:rgba(255,255,255,.9);color:var(--ink);
+  pointer-events:none;
+}
+/* Einmaliger, dezenter Impuls auf dem Anfasser, sobald der Vergleich
+   sichtbar wird (verdeutlicht ohne Text, dass sich etwas ziehen lässt).
+   Vollständig aus bei prefers-reduced-motion. */
+@keyframes ba-nudge{
+  0%,100%{transform:translate(-50%,-50%)}
+  50%{transform:translate(calc(-50% + 16px),-50%)}
+}
+@media (prefers-reduced-motion: no-preference){
+  .ba.is-hinting .ba-handle{animation:ba-nudge 1.4s ease-in-out .35s 2}
+}
+/* --- Alle Vorher/Nachher-Vergleiche in EINEM Raster (2 × 2) --- */
+.ba-grid{
+  display:grid;gap:1.6rem;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  margin:0 0 2.4rem;
+}
+@media (max-width:640px){
+  .ba-grid{grid-template-columns:1fr}
+}
+/* Karte = Bildrahmen + Beschriftung; die Beschriftung füllt den Rest,
+   damit alle Karten einer Zeile exakt gleich hoch sind. */
+.ba-card{margin:0;display:flex;flex-direction:column}
+.ba-card figcaption{flex:1}
+/* Paare, deren Aufnahmen nicht deckungsgleich sind: zwei Bilder
+   nebeneinander statt eines Zieh-Reglers, sonst springt der Vergleich. */
+.ba-side{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+.ba-side-cell{position:relative;overflow:hidden;min-height:0}
+.ba-side-cell img{width:100%;height:100%;object-fit:cover;display:block}
+
 /* ================= EINSATZGEBIET ================= */
 .area{background:var(--white);border-top:1px solid var(--line)}
 .area-grid{display:grid;gap:3rem;grid-template-columns:1fr 1fr;align-items:start}
@@ -635,17 +734,20 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
 <section class="hero" aria-label="Einführung">
   <div class="carousel" aria-roledescription="Karussell" aria-label="Bilder unserer Arbeit">
     <div class="carousel-track" tabindex="0">
-      <div class="carousel-slide" role="group" aria-roledescription="Folie" aria-label="Bild 1 von 4">
-        <img class="ph" src="pexels-solar-1600.jpg" alt="Photovoltaik-Module auf dem Ziegeldach eines Wohnhauses">
+      <div class="carousel-slide" role="group" aria-roledescription="Folie" aria-label="Bild 1 von 5">
+        <img class="ph" src="krisztián képek/krisztian.jpg" alt="Krisztián freischnittet das Unterholz im Grünen" style="object-position:center 40%">
       </div>
-      <div class="carousel-slide" role="group" aria-roledescription="Folie" aria-label="Bild 2 von 4">
-        <img class="ph" src="hedge-trimming-1600.jpg" alt="Heckenschnitt mit der Motorschere" loading="lazy">
+      <div class="carousel-slide" role="group" aria-roledescription="Folie" aria-label="Bild 2 von 5">
+        <img class="ph" src="krisztián képek/napelem4.jpg" alt="Arbeiter reinigt die Photovoltaikmodule auf einem Scheunendach" loading="lazy" style="object-position:center 35%">
       </div>
-      <div class="carousel-slide" role="group" aria-roledescription="Folie" aria-label="Bild 3 von 4">
-        <img class="ph" src="declan-garden-1600.jpg" alt="Grüner Garten mit gepflegtem Rasen und altem Baumbestand" loading="lazy">
+      <div class="carousel-slide" role="group" aria-roledescription="Folie" aria-label="Bild 3 von 5">
+        <img class="ph" src="krisztián képek/fakivágás.jpg" alt="Fällarbeit an einem hohen Baum neben dem Wohnhaus" loading="lazy" style="object-position:center 28%">
       </div>
-      <div class="carousel-slide" role="group" aria-roledescription="Folie" aria-label="Bild 4 von 4">
-        <img class="ph" src="solar-1600.jpg" alt="Reinigung einer Photovoltaikanlage auf dem Dach" loading="lazy">
+      <div class="carousel-slide" role="group" aria-roledescription="Folie" aria-label="Bild 4 von 5">
+        <img class="ph" src="krisztián képek/autó.jpg" alt="Rote Hubarbeitsbühne auf dem Einsatzfahrzeug" loading="lazy" style="object-position:center 55%">
+      </div>
+      <div class="carousel-slide" role="group" aria-roledescription="Folie" aria-label="Bild 5 von 5">
+        <img class="ph" src="krisztián képek/fakivágás2.jpg" alt="Gekürzte Baumstämme im Garten nach der Fällarbeit" loading="lazy" style="object-position:center 35%">
       </div>
     </div>
     <button class="carousel-btn prev" aria-label="Vorheriges Bild" data-i18n-label="car.prev">‹</button>
@@ -882,6 +984,88 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
       <h2 id="ref-h" data-i18n="rf.h2">Ausgeführte Arbeiten</h2>
       <p data-i18n="rf.p">Ein Blick auf abgeschlossene Einsätze im Einsatzgebiet. Wischen oder
          mit den Pfeiltasten blättern.</p>
+    </div>
+    <!-- Alle echten Vorher/Nachher-Vergleiche (előtte/utána) in einem Raster -->
+    <div class="ba-grid">
+      <figure class="ba-card reveal" data-delay="1"
+              aria-label="Vorher-Nachher-Vergleich: Photovoltaik-Reinigung">
+        <div class="ba ba-media">
+          <img class="ba-img ba-after" src="krisztián képek/napelem_utána.jpg"
+               alt="Photovoltaikanlage auf dem Scheunendach nach der Reinigung" loading="lazy">
+          <img class="ba-img ba-before" src="krisztián képek/napelem_előtte.jpg"
+               alt="Photovoltaikanlage auf dem Scheunendach vor der Reinigung" loading="lazy">
+          <span class="ba-tag ba-tag-before" data-i18n="ba.before">Vorher</span>
+          <span class="ba-tag ba-tag-after" data-i18n="ba.after">Nachher</span>
+          <span class="ba-hint" data-i18n="ba.hint">Regler ziehen</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" step="1"
+                 data-i18n-label="ba.label" aria-label="Vorher-Nachher-Vergleichsregler">
+          <span class="ba-divider" aria-hidden="true"></span>
+          <span class="ba-handle" aria-hidden="true">
+            <svg width="26" height="14" viewBox="0 0 26 14" fill="none" aria-hidden="true" focusable="false">
+              <path d="M7 1 1 7l6 6M19 1l6 6-6 6" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+        <figcaption data-i18n="ba.cap">Photovoltaik-Reinigung auf einem Hof&nbsp;– links vorher, rechts nachher</figcaption>
+      </figure>
+
+      <figure class="ba-card reveal" data-delay="2"
+              aria-label="Vorher-Nachher-Vergleich: Heckenschnitt">
+        <div class="ba-side ba-media">
+          <div class="ba-side-cell">
+            <img src="krisztián képek/előtte.jpg" loading="lazy"
+                 alt="Überwachsene Hecke entlang der Straße vor dem Schnitt">
+            <span class="ba-tag ba-tag-before" data-i18n="ba.before">Vorher</span>
+          </div>
+          <div class="ba-side-cell">
+            <img src="krisztián képek/utána.jpg" loading="lazy"
+                 alt="Sauber geschnittene Hecke entlang der Straße nach der Arbeit">
+            <span class="ba-tag ba-tag-after" data-i18n="ba.after">Nachher</span>
+          </div>
+        </div>
+        <figcaption data-i18n="ba.c1">Heckenschnitt entlang der Straße</figcaption>
+      </figure>
+
+      <figure class="ba-card reveal" data-delay="3"
+              aria-label="Vorher-Nachher-Vergleich: Wiesenmahd">
+        <div class="ba ba-media">
+          <img class="ba-img ba-after" src="krisztián képek/utána2.jpg" loading="lazy"
+               alt="Gemähte Wiese unter dem Baum nach der Mahd">
+          <img class="ba-img ba-before" src="krisztián képek/előtte2.jpg" loading="lazy"
+               alt="Überwachsene Wiese mit Brombeeren vor der Mahd">
+          <span class="ba-tag ba-tag-before" data-i18n="ba.before">Vorher</span>
+          <span class="ba-tag ba-tag-after" data-i18n="ba.after">Nachher</span>
+          <span class="ba-hint" data-i18n="ba.hint">Regler ziehen</span>
+          <input class="ba-range" type="range" min="0" max="100" value="50" step="1"
+                 data-i18n-label="ba.label2" aria-label="Vorher-Nachher-Vergleichsregler Wiese">
+          <span class="ba-divider" aria-hidden="true"></span>
+          <span class="ba-handle" aria-hidden="true">
+            <svg width="26" height="14" viewBox="0 0 26 14" fill="none" aria-hidden="true" focusable="false">
+              <path d="M7 1 1 7l6 6M19 1l6 6-6 6" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+        </div>
+        <figcaption data-i18n="ba.c2">Wiesenmahd &amp; Freischneiden&nbsp;– links vorher, rechts nachher</figcaption>
+      </figure>
+
+      <figure class="ba-card reveal" data-delay="4"
+              aria-label="Vorher-Nachher-Vergleich: Graben freigelegt">
+        <div class="ba-side ba-media">
+          <div class="ba-side-cell">
+            <img src="krisztián képek/előtte3.jpg" loading="lazy"
+                 alt="Zugewachsener Graben mit Schilf vor der Freilegung">
+            <span class="ba-tag ba-tag-before" data-i18n="ba.before">Vorher</span>
+          </div>
+          <div class="ba-side-cell">
+            <img src="krisztián képek/utána3.jpg" loading="lazy"
+                 alt="Freigelegter Graben mit Holzbohlen nach der Arbeit">
+            <span class="ba-tag ba-tag-after" data-i18n="ba.after">Nachher</span>
+          </div>
+        </div>
+        <figcaption data-i18n="ba.c3">Graben freigelegt und Böschung gemäht</figcaption>
+      </figure>
     </div>
     <div class="gallery-track reveal" tabindex="0" aria-label="Galerie ausgeführter Arbeiten">
       <figure class="gallery-item">
@@ -1191,6 +1375,15 @@ var I18N = (function(){
     "rf.c3":"Green maintenance for a property manager · Ulm",
     "rf.c4":"Tree felling · Dornstadt",
     "rf.c5":"Gutter cleaning · Neu-Ulm",
+    "ba.before":"Before",
+    "ba.after":"After",
+    "ba.label":"Before-and-after comparison slider",
+    "ba.hint":"Drag to compare",
+    "ba.cap":"Solar panel cleaning on a farm&nbsp;– before on the left, after on the right",
+    "ba.c1":"Hedge trimming along the roadside&nbsp;– before on the left, after on the right",
+    "ba.c2":"Meadow mowing &amp; clearing&nbsp;– before on the left, after on the right",
+    "ba.c3":"Ditch cleared and embankment mown&nbsp;– before on the left, after on the right",
+    "ba.label2":"Before-and-after comparison slider for the meadow",
     "ar.kicker":"Service area",
     "ar.h2":"We come to you",
     "ar.note":"Our service area covers both sides of the Danube: the Alb-Donau district in <strong>Baden-Württemberg</strong> as well as <strong>Neu-Ulm and Altenstadt in Bavaria</strong>. Travel within this area is already included in the quote.",
@@ -1474,6 +1667,35 @@ var I18N = (function(){
     clearTimeout(t); t = setTimeout(updateDots, 80);
   });
   updateDots();
+})();
+
+/* ---------- Vorher/Nachher-Slider (beliebig viele Instanzen) ----------
+   Der unsichtbare Regler liefert das --pos-Maß; Fokus und Pfeiltasten
+   funktionieren dadurch automatisch (Barrierefreiheit). */
+(function(){
+  var boxes = document.querySelectorAll('.ba');
+  if(!boxes.length) return;
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  Array.prototype.forEach.call(boxes, function(box){
+    var range = box.querySelector('.ba-range');
+    if(!range) return;
+    function update(){ box.style.setProperty('--pos', range.value + '%'); }
+    range.addEventListener('input', update);
+    update();
+    /* Einmaliger Anfasser-Impuls, sobald der Vergleich sichtbar wird */
+    if(reduced || !('IntersectionObserver' in window)) return;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if(!entry.isIntersecting) return;
+        box.classList.add('is-hinting');
+        io.unobserve(box);
+      });
+    }, {threshold: 0.35});
+    io.observe(box);
+    box.addEventListener('animationend', function(e){
+      if(e.target.classList.contains('ba-handle')) box.classList.remove('is-hinting');
+    });
+  });
 })();
 
 /* ---------- Scroll-Reveal (respektiert prefers-reduced-motion) ---------- */
