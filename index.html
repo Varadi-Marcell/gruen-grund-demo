@@ -271,6 +271,17 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
   box-sizing:content-box;border:6px solid transparent;background-clip:padding-box; /* größere Tippfläche */
 }
 .carousel-dots button[aria-current="true"]{background-color:var(--yellow)}
+/* Desktop: Die Fotos sind Hochformat. Statt EINES breiten Streifens (der
+   Kopf und Boden abschneidet) laufen mehrere GANZE Hochformat-Fotos
+   nebeneinander durch das Karussell: 2 ab Tablet, 3 ab 900px. */
+@media (min-width:641px){
+  .carousel-track{gap:4px}
+  .carousel-slide{flex:0 0 calc((100% - 4px) / 2)}
+  .carousel-slide .ph{aspect-ratio:3/4}
+}
+@media (min-width:900px){
+  .carousel-slide{flex-basis:calc((100% - 8px) / 3)}
+}
 @media (max-width:640px){
   .carousel-btn{display:none} /* Mobil: Wischen */
   .carousel-slide .ph{aspect-ratio:4/3} /* höherer Bildausschnitt auf schmalen Screens */
@@ -431,20 +442,6 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
 .b2b .btn{margin-top:1.8rem}
 @media (max-width:860px){.b2b-grid{grid-template-columns:1fr}}
 
-/* ================= REFERENZEN ================= */
-.gallery-track{
-  display:flex;gap:1.2rem;overflow-x:auto;
-  scroll-snap-type:x mandatory;padding-bottom:.8rem;
-  -webkit-overflow-scrolling:touch;
-}
-.gallery-item{
-  flex:0 0 min(420px,85%);scroll-snap-align:start;
-}
-.gallery-item .ph{aspect-ratio:3/2;border-radius:var(--radius)}
-.gallery-item figcaption{
-  margin-top:.55rem;font-size:.88rem;color:var(--ink-soft);
-}
-
 /* ================= VORHER / NACHHER-SLIDER =================
    Alle Vergleiche („Ausgeführte Arbeiten“) liegen in einem Raster (.ba-grid)
    und teilen sich einen Bildrahmen (.ba-media) – dadurch gleich hohe Karten. */
@@ -525,11 +522,10 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
 @media (prefers-reduced-motion: no-preference){
   .ba.is-hinting .ba-handle{animation:ba-nudge 1.4s ease-in-out .35s 2}
 }
-/* --- Alle Vorher/Nachher-Vergleiche in EINEM Raster (2 × 2) --- */
+/* --- Alle Vorher/Nachher-Vergleiche in EINEM Raster (2 × 2, mobil 1 Spalte) --- */
 .ba-grid{
   display:grid;gap:1.6rem;
   grid-template-columns:repeat(2,minmax(0,1fr));
-  margin:0 0 2.4rem;
 }
 @media (max-width:640px){
   .ba-grid{grid-template-columns:1fr}
@@ -671,8 +667,6 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
   .trust ul{padding:0 16px;gap:.35rem 1.4rem}
   section{padding:3rem 0}
   .section-head{margin-bottom:1.8rem}
-  .gallery-track{scroll-padding-left:16px}
-  .gallery-item{flex-basis:88%}
   .steps{gap:1.9rem}
   .b2b-grid,.area-grid,.contact-grid{gap:2rem}
   .footer-grid{gap:1.8rem;padding:2.5rem 0 1.8rem}
@@ -789,7 +783,7 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
 
     <div class="services-grid">
       <article class="service-card featured reveal">
-        <img class="ph" src="pexels-solar-1600.jpg" alt="Photovoltaikanlage auf einem Hausdach" loading="lazy">
+        <img class="ph" src="krisztián képek/napelem_services.jpg" alt="Photovoltaikanlage auf einem Flachdach mit Blick über die Dachlandschaft" loading="lazy">
         <div class="card-body">
           <span class="badge" data-i18n="sv.pv.badge">Am häufigsten angefragt</span>
           <h3 data-i18n="sv.pv.h3">Photovoltaik-Reinigung</h3>
@@ -811,7 +805,7 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
       </article>
 
       <article class="service-card reveal">
-        <img class="ph" src="declan-garden-1600.jpg" alt="Gepflegter Privatgarten mit Rasen und altem Baumbestand" loading="lazy">
+        <img class="ph" src="krisztián képek/garden_maintenance_crop.jpg" alt="Gepflegter Garten mit gemähtem Rasen rund um einen Teich, Eibenhecke und Birke" loading="lazy">
         <div class="card-body">
           <h3 data-i18n="sv.garden.h3">Gartenpflege</h3>
           <p data-i18n="sv.garden.p">Regelmäßige oder einmalige Pflege: Rasen, Beete, Sträucher und
@@ -821,7 +815,7 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
       </article>
 
       <article class="service-card reveal" data-delay="1">
-        <img class="ph" src="tree cut.jpg" alt="Baumpfleger bei der Arbeit in der Baumkrone" loading="lazy">
+        <img class="ph" src="krisztián képek/fa_metszes.jpg" alt="Baumpfleger arbeitet von einer Leiter aus an einem gekürzten Baumstamm" loading="lazy" style="object-position:center 25%">
         <div class="card-body">
           <h3 data-i18n="sv.tree.h3">Baumpflege &amp; Baumfällung</h3>
           <p data-i18n="sv.tree.p">Fachgerechter Schnitt, Kronenpflege und sichere Fällung&nbsp;–
@@ -982,32 +976,25 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
     <div class="section-head reveal">
       <span class="kicker" data-i18n="rf.kicker">Referenzen</span>
       <h2 id="ref-h" data-i18n="rf.h2">Ausgeführte Arbeiten</h2>
-      <p data-i18n="rf.p">Ein Blick auf abgeschlossene Einsätze im Einsatzgebiet. Wischen oder
-         mit den Pfeiltasten blättern.</p>
+      <p data-i18n="rf.p">Ein Blick auf abgeschlossene Einsätze im Einsatzgebiet&nbsp;– vorher und nachher.</p>
     </div>
     <!-- Alle echten Vorher/Nachher-Vergleiche (előtte/utána) in einem Raster -->
     <div class="ba-grid">
       <figure class="ba-card reveal" data-delay="1"
               aria-label="Vorher-Nachher-Vergleich: Photovoltaik-Reinigung">
-        <div class="ba ba-media">
-          <img class="ba-img ba-after" src="krisztián képek/napelem_utána.jpg"
-               alt="Photovoltaikanlage auf dem Scheunendach nach der Reinigung" loading="lazy">
-          <img class="ba-img ba-before" src="krisztián képek/napelem_előtte.jpg"
-               alt="Photovoltaikanlage auf dem Scheunendach vor der Reinigung" loading="lazy">
-          <span class="ba-tag ba-tag-before" data-i18n="ba.before">Vorher</span>
-          <span class="ba-tag ba-tag-after" data-i18n="ba.after">Nachher</span>
-          <span class="ba-hint" data-i18n="ba.hint">Regler ziehen</span>
-          <input class="ba-range" type="range" min="0" max="100" value="50" step="1"
-                 data-i18n-label="ba.label" aria-label="Vorher-Nachher-Vergleichsregler">
-          <span class="ba-divider" aria-hidden="true"></span>
-          <span class="ba-handle" aria-hidden="true">
-            <svg width="26" height="14" viewBox="0 0 26 14" fill="none" aria-hidden="true" focusable="false">
-              <path d="M7 1 1 7l6 6M19 1l6 6-6 6" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
+        <div class="ba-side ba-media">
+          <div class="ba-side-cell">
+            <img src="krisztián képek/előtte5.jpg" loading="lazy"
+                 alt="Verschmutzte Photovoltaikmodule auf einem Flachdach, ein Mitarbeiter reinigt mit rotierender Bürste">
+            <span class="ba-tag ba-tag-before" data-i18n="ba.before">Vorher</span>
+          </div>
+          <div class="ba-side-cell">
+            <img src="krisztián képek/utána5.jpg" loading="lazy"
+                 alt="Gereinigte Photovoltaikmodule auf dem Flachdach nach der Reinigung">
+            <span class="ba-tag ba-tag-after" data-i18n="ba.after">Nachher</span>
+          </div>
         </div>
-        <figcaption data-i18n="ba.cap">Photovoltaik-Reinigung auf einem Hof&nbsp;– links vorher, rechts nachher</figcaption>
+        <figcaption data-i18n="ba.c0">Photovoltaik-Reinigung auf einem Flachdach</figcaption>
       </figure>
 
       <figure class="ba-card reveal" data-delay="2"
@@ -1065,28 +1052,6 @@ img.ph{padding:0;object-fit:cover;width:100%;background:#e5e2da}
           </div>
         </div>
         <figcaption data-i18n="ba.c3">Graben freigelegt und Böschung gemäht</figcaption>
-      </figure>
-    </div>
-    <div class="gallery-track reveal" tabindex="0" aria-label="Galerie ausgeführter Arbeiten">
-      <figure class="gallery-item">
-        <img class="ph" src="solar-1600.jpg" alt="Reinigung einer Photovoltaikanlage auf dem Dach" loading="lazy">
-        <figcaption data-i18n="rf.c1">Photovoltaik-Reinigung · Ehingen</figcaption>
-      </figure>
-      <figure class="gallery-item">
-        <img class="ph" src="hedge-trimming-1600.jpg" alt="Heckenschnitt in einem Privatgarten" loading="lazy">
-        <figcaption data-i18n="rf.c2">Heckenschnitt · Öpfingen</figcaption>
-      </figure>
-      <figure class="gallery-item">
-        <img class="ph" src="garden.jpeg" alt="Gepflegte Rasenfläche nach der Mahd" loading="lazy">
-        <figcaption data-i18n="rf.c3">Grünpflege für Hausverwaltung · Ulm</figcaption>
-      </figure>
-      <figure class="gallery-item">
-        <img class="ph" src="tree cut.jpg" alt="Baumfällung mit Seilklettertechnik" loading="lazy">
-        <figcaption data-i18n="rf.c4">Baumfällung · Dornstadt</figcaption>
-      </figure>
-      <figure class="gallery-item">
-        <img class="ph" src="eresz2.jpg" alt="Dachrinnenreinigung mit dem Hochdruckreiniger" loading="lazy">
-        <figcaption data-i18n="rf.c5">Dachrinnenreinigung · Neu-Ulm</figcaption>
       </figure>
     </div>
   </div>
@@ -1369,17 +1334,11 @@ var I18N = (function(){
     "bb.btn":"Request a business consultation",
     "rf.kicker":"References",
     "rf.h2":"Completed work",
-    "rf.p":"A look at completed jobs in our service area. Swipe or use the arrow keys to browse.",
-    "rf.c1":"Solar panel cleaning · Ehingen",
-    "rf.c2":"Hedge trimming · Öpfingen",
-    "rf.c3":"Green maintenance for a property manager · Ulm",
-    "rf.c4":"Tree felling · Dornstadt",
-    "rf.c5":"Gutter cleaning · Neu-Ulm",
+    "rf.p":"A look at completed jobs in our service area&nbsp;– before and after.",
     "ba.before":"Before",
     "ba.after":"After",
-    "ba.label":"Before-and-after comparison slider",
     "ba.hint":"Drag to compare",
-    "ba.cap":"Solar panel cleaning on a farm&nbsp;– before on the left, after on the right",
+    "ba.c0":"Solar panel cleaning on a flat roof",
     "ba.c1":"Hedge trimming along the roadside&nbsp;– before on the left, after on the right",
     "ba.c2":"Meadow mowing &amp; clearing&nbsp;– before on the left, after on the right",
     "ba.c3":"Ditch cleared and embankment mown&nbsp;– before on the left, after on the right",
@@ -1627,15 +1586,28 @@ var I18N = (function(){
   var dotsWrap = document.querySelector('.carousel-dots');
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  for(var i=0;i<slides.length;i++){
-    (function(i){
-      var d = document.createElement('button');
-      d.setAttribute('aria-label', I18N.str().dot(i+1));
-      d.addEventListener('click', function(){ goTo(i); });
-      dotsWrap.appendChild(d);
-    })(i);
+  /* Mobil: 1 Foto pro Ansicht, Desktop: 2–3 – daher in Schritten der
+     Folienbreite blättern; Punkte = Zahl der möglichen Positionen. */
+  function step(){
+    return slides.length > 1 ? slides[1].offsetLeft - slides[0].offsetLeft : track.clientWidth;
   }
+  function perView(){ return Math.max(1, Math.round(track.clientWidth / step())); }
+  function positions(){ return Math.max(1, slides.length - perView() + 1); }
+
   var dots = dotsWrap.children;
+  function buildDots(){
+    var n = positions();
+    if(dots.length === n) return;
+    dotsWrap.textContent = '';
+    for(var i=0;i<n;i++){
+      (function(i){
+        var d = document.createElement('button');
+        d.setAttribute('aria-label', I18N.str().dot(i+1));
+        d.addEventListener('click', function(){ goTo(i); });
+        dotsWrap.appendChild(d);
+      })(i);
+    }
+  }
 
   document.addEventListener('langchange', function(){
     for(var i=0;i<dots.length;i++){
@@ -1644,11 +1616,11 @@ var I18N = (function(){
   });
 
   function current(){
-    return Math.round(track.scrollLeft / track.clientWidth);
+    return Math.min(positions()-1, Math.round(track.scrollLeft / step()));
   }
   function goTo(i){
-    i = Math.max(0, Math.min(slides.length-1, i));
-    track.scrollTo({left: i * track.clientWidth, behavior: reduced ? 'auto' : 'smooth'});
+    i = Math.max(0, Math.min(positions()-1, i));
+    track.scrollTo({left: i * step(), behavior: reduced ? 'auto' : 'smooth'});
   }
   function updateDots(){
     var c = current();
@@ -1656,6 +1628,12 @@ var I18N = (function(){
       dots[i].setAttribute('aria-current', i===c ? 'true' : 'false');
     }
   }
+  var rt;
+  window.addEventListener('resize', function(){
+    clearTimeout(rt);
+    rt = setTimeout(function(){ buildDots(); updateDots(); }, 150);
+  });
+  buildDots();
   document.querySelector('.carousel-btn.prev').addEventListener('click', function(){ goTo(current()-1); });
   document.querySelector('.carousel-btn.next').addEventListener('click', function(){ goTo(current()+1); });
   track.addEventListener('keydown', function(e){
